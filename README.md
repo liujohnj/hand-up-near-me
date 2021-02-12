@@ -18,8 +18,6 @@ Comment:  At the present time, it is unknown whether portions of this prototype 
 #### Create new provider MongoDB document
 <img src="https://i.ibb.co/VQnP1gC/create-provider-210211.png" alt="create-provider-210211" border="0"></a>
 
-<img src="https://i.ibb.co/8dWgmZH/read-users-210211.png" alt="read-users-210211" border="0"></a>
-
 #### Create new user MongoDB document
 <img src="https://i.ibb.co/KbYrdkD/create-user-210211.png" alt="create-user-210211" border="0"></a>
 
