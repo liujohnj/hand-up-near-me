@@ -13,6 +13,26 @@ This README page is included just as a preliminary guide for the initial commit 
 
 Comment:  At the present time, it is unknown whether portions of this prototype codebase will be merged into the main branch to form the basis for the main project.  Other programming approaches for the MERN stack components, particularly as they relate to how Express is implemented, are being evaluated to determine which one is the most appropriate.
 
+## Screenshots of functionality (as of 02/11/2021)
+
+#### Create new provider MongoDB document
+<img src="https://i.ibb.co/VQnP1gC/create-provider-210211.png" alt="create-provider-210211" border="0"></a>
+
+<img src="https://i.ibb.co/8dWgmZH/read-users-210211.png" alt="read-users-210211" border="0"></a>
+
+#### Create new user MongoDB document
+<img src="https://i.ibb.co/KbYrdkD/create-user-210211.png" alt="create-user-210211" border="0"></a>
+
+#### Read list of providers
+<img src="https://i.ibb.co/qpHSxBK/read-providers-210211.png" alt="read-providers-210211" border="0"></a>
+
+#### Read list of users
+<img src="https://i.ibb.co/8dWgmZH/read-users-210211.png" alt="read-users-210211" border="0"></a>
+
+#### Update provider
+<img src="https://i.ibb.co/f0sygR3/update-provider-210211.png" alt="update-provider-210211" border="0"></a>
+
+
 ## Instructions for installing and running
 
 To install and run the application on your local computer:
