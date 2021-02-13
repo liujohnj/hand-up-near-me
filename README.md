@@ -33,22 +33,8 @@ Comment:  At the present time, it is unknown whether portions of this prototype 
 
 ## Instructions for installing and running
 
-To install and run the application on your local computer:
+*Coming soon...*
 
-(These instructions are still in progress and have not been tested/verified, particularly as it relates to installing some of the needed tools/frameworks, e.g., react.)
-
-- Navigate to a folder where you would like the project to reside.
-- At the command line, type 'node -v' to check to see if Node.js is already installed on your machine and, if so, verify the version (e.g., at least v8.15.0).
-- If not present, install Node.js.  (More details to follow.)
-- From the command line, type 'npx create-react-app mern-hand-up'.  This will create a React project with all the dependencies installed.
-- git clone the appropriate repository branch.
-- Enter 'cd backend' to enter the directory containing the back-end components.
-- Obtain the needed .env file and place it in this folder.  This file is not included in the git repository because it contains sensitive credentials (e.g., for MongoDB).  The file can be obtained from John Liu.  
-- From the terminal, run 'npm start' to start up MongooseDB.
-- Enter 'cd ..' to move up one directory.
-- Run 'npm start' to startup the front-end.
-- On a web browser, navigate to http://localhost:3000. This likely will auto-launch upon running starting react.
-- Delete boilerplate react files.  (More details to follow.)
 
 ## Current known bugs
 
