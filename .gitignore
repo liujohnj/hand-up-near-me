@@ -24,3 +24,6 @@ yarn-error.log*
 
 # protect mongoDB credentials
 /backend/.env
+
+# personal files
+README-john-notes.md
