@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import Navbar from "./components/navbar.component"
+import Home from "./components/home.component";
 import ReadProviders from "./components/read-providers.component";
 import UpdateProvider from "./components/update-provider.component";
 import CreateProvider from "./components/create-provider.component";
@@ -27,6 +28,8 @@ function App() {
       <div className="container">
         <Navbar />
         <br/>
+        <Route path="/" exact component={Home} />
+        <Route path="/home" exact component={Home} />
         <Route path="/providers/list" exact component={ReadProviders} />
         <Route path="/providers/update/:id" component={UpdateProvider} />
         <Route path="/providers/add" component={CreateProvider} />
