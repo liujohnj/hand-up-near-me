@@ -1,64 +1,51 @@
 import React, { Component } from 'react';
-import axios from 'axios';    //connect front & back ends
+import { Input } from "mdbreact";
 
-export default class CreateUser extends Component {
-  constructor(props) {
-    super(props);
+const providersList = [
+  {"username" : "alpha"},
+  {"username" : "bravo"},
+  {"username" : "charlie"}
+]
 
-    this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onChangeFirstName = this.onChangeFirstName.bind(this);
-    this.onChangeLastName = this.onChangeLastName.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-
-    this.state = {
-      username: '',
-      firstName: '',
-      lastName: ''
-    }
-  }
-
-  onChangeUsername(e) {
-    this.setState({         //method to update username element
-      username: e.target.value
-    });
-  }
-
-  onChangeFirstName(e) {
-    this.setState({
-      firstName: e.target.value
-    });
-  }
-
-  onChangeLastName(e) {
-    this.setState({
-      lastName: e.target.value,
-    });
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
+export default class Home extends Component {
   
-    const user = {
-      username: this.state.username,
-      firstName: this.state.firstName,
-      lastName: this.state.lastName
-    }
-
-    //print to console for testing purposes
-    console.log(user);
-
-    //send provider data to back end
-    axios.post('http://localhost:5000/users/add', user)
-      .then(res => console.log(res.data));
-
-    //navigate to Users List window
-    window.location = '/users/list';
+  state = {
+    search : ""
   }
+
+  renderProvider = provider => {
+    const {search} = this.state;
+    var username = provider.username.toLowerCase()
+  
+    return (provider.username);
+
+  };
+
+  onchange = e =>{
+    this.setState({ search : e.target.value });
+  };
 
   render() {
+    const {search} = this.state;
+    const filteredProviders = providersList.filter(provider => {
+      <p>Nope</p>;
+      return provider.username.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+    });
+ 
+ 
     return (
     <div>
       <h3>Welcome.</h3>
+      <br></br>
+      <h4>Search for Providers</h4>
+      <Input label="Enter Provider username" icon="search" onChange={this.onchange}/>
+      <br></br>
+      <div>
+        {filteredProviders.map(provider => {
+          <p>Yep</p>;
+          return this.renderProvider(provider);
+        })}
+      </div>
     </div>
     )
   }
