@@ -1,19 +1,20 @@
 {
-  "name": "Discussion4",
+  "name": "handsupnearme",
   "version": "1.0.0",
-  "description": "Testing Practice",
-  "main": "server.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "mocha server.test.js",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Medhir Bhargava & Alex Webber",
-  "license": "MIT",
-  "devDependencies": {
-    "mocha": "^8.3.0",
-    "should": "^7.1.1"
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "request": "^2.67.0"
+    "bootstrap": "^4.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.17",
+    "realm": "^10.2.0"
   }
 }
