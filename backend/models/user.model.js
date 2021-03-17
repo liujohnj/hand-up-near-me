@@ -1,7 +1,7 @@
 const db = require('../util/db');
 
 
-const userSchema = new Schema({
+const userSchema = ({
     name: String,
     password: String,
     email: {type: String, required: true, unique: true, trim: true, minlength: 5},

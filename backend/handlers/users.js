@@ -37,10 +37,20 @@ exports.userSignup = (req, res) =>{
 
 };
 
-exports.userLogin();
+exports.userLogin = (req, res) => {
+    const user = {
+        email: req.body.email,
+        password: req.body.password
+    };
 
-exports.userUploadImage();
+    const {valid, errors} = validateLoginData(user);
+    if(!valid) return res.status(400).json(errors);
 
-exports.userAddDetails();
+    
+};
 
-exports.userGetAuthentication();
+//exports.userUploadImage();
+
+//exports.userAddDetails();
+
+//exports.userGetAuthentication();

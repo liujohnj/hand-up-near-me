@@ -1,5 +1,5 @@
 module.exports = {
     databaseKey: "test-ygbzv",
-    databaseURI: "mongodb+srv://<username>:<password>@cluster0.p6ipr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    databaseURI: "mongodb+srv://Larry:<0123456789>@handupnearme.bueq4.mongodb.net/HandUpNearMe?retryWrites=true&w=majority",
     projectID: "HandsUpNearMe"
 }
