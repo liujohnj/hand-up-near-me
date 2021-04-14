@@ -1,20 +1,48 @@
 import ProviderList from './ProviderList';
 import useFetch from './useFetch';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLocalStorage } from 'react';
 import { FaHandsHelping, FaGithub } from 'react-icons/fa';
 
 const Search = () => {
     const { providers, isPending, error } = useFetch('http://localhost:8000/providers')
-    console.log("Providers= ", providers);
+    //console.log("Providers= ", providers);
 
-    const [filterName, setFilterName] = useState("");
+    const nameFromLocalStorage = localStorage.getItem('myFilterName') || "";
+    const [filterName, setFilterName] = useState(nameFromLocalStorage);
+    
+    
+    useEffect(() => {
+        localStorage.setItem('myFilterName', filterName)
+    }, [filterName]);
+
+    
+    
+
+    //const [filterName, setFilterName] = useState("");
+    /*
+    function useLocalState(localItem) {
+        const [filterName, setFilterName] = useState(localStorage.getItem('myFilterName'));
+
+        return [filterName, setFilterName];
+    }
+    */
+   /*
+    const [filterName, setFilterName] = useState(() => {
+        if (localStorage.getItem('myFilterName') === "")
+            return("");
+        else
+            return(localStorage.getItem('myFilterName'));
+    });
+    */
+    
     const [service, setService] = useState("");
 
     const updateName = (e) => {
         setFilterName(e.target.value);
+        //localStorage.setItem('myFilterName', e.target.value);
     }
 
-    const [state, setState] = useState({
+    const defaultCheckboxes = {
         hookAdotpion: false,
         hookBurial: false,
         hookChildcare: false,
@@ -45,7 +73,17 @@ const Search = () => {
         hookVeterinary: false,
         hookVoterRegistration: false,
         hookVisionCare: false
-    })
+    }
+
+    const defaultStrCheckboxes = JSON.stringify(defaultCheckboxes);
+
+    const checkboxesFromLocalStorage = JSON.parse(localStorage.getItem('myCheckboxes') || defaultStrCheckboxes);
+
+    const [state, setState] = useState(checkboxesFromLocalStorage);
+
+    useEffect(() => {
+        localStorage.setItem('myCheckboxes', JSON.stringify(state))
+    }, [state]);
 
     function handleChange(e) {
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
@@ -79,7 +117,7 @@ const Search = () => {
     };
 
     assignDistance();
-    console.log("My original, sortable list: ", providers);
+    //console.log("My original, sortable list: ", providers);
 
     function sortByDistance(property) {
         return function(a,b) {
@@ -91,8 +129,8 @@ const Search = () => {
         }
     }
     const sortedProviders = [].concat(providers).sort(sortByDistance("distanceCrow"));
-    console.log("My new sorted list: ", sortedProviders);
-    console.log("Hopefully still my original list: ", providers);
+    //console.log("My new sorted list: ", sortedProviders);
+    //console.log("Hopefully still my original list: ", providers);
 
     return (
         <div className="search">
@@ -431,7 +469,7 @@ const Search = () => {
             <div className="results-area">
                 { error && <div>{ error }</div>}
                 { isPending && <div>Loading...</div> }
-                { <ProviderList providers={sortedProviders.filter(
+                { providers && <ProviderList providers={sortedProviders.filter(
                     provider =>
                         (filterName !== "" && provider.name.toLowerCase().includes(filterName.toLowerCase())) ||
                         (
