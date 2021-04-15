@@ -12,7 +12,7 @@ const Navbar = () => {
                 <Link to="/search">Search</Link>
                 <Link to="/about">About</Link>
                 <Link to="/contact">Contact</Link>
-                <Link to="/login" style ={{
+                <Link to="/editprofile" style ={{
                     color: "white",
                     backgroundColor: '#f1356d',
                     borderRadius: '8px'
