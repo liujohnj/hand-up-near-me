@@ -4,7 +4,7 @@ import { useState, useEffect, useLocalStorage } from 'react';
 import { FaHandsHelping, FaGithub } from 'react-icons/fa';
 
 const Search = () => {
-    const { providers, isPending, error } = useFetch('http://localhost:5000/providers/list')
+    const { providers, isPending, error } = useFetch('http://localhost:5000/providers/list');
     //const url = 'http://localhost:5000/providers/list';
     
     //console.log("Providers= ", providers);

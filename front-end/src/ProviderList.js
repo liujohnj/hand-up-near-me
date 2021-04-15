@@ -50,8 +50,8 @@ const ProviderList = ({ providers, title }) => {    // destructured vs props
         <div className = "provider-list">
             <h2>{ title }</h2>
             {providers && providers.map((provider) => (   //checks to avoid null errors
-                <div className="provider-preview" key={provider && provider.id}>
-                    <Link to={ `/providers/${provider && provider.id}` }>
+                <div className="provider-preview" key={provider && provider._id}>
+                    <Link to={ `/providers/${provider && provider._id}` }>
                         <h2> { provider && provider.name }</h2>
                         <p>{ provider && provider.address1 }</p>
                         <p>{ provider && provider.address2 }</p>

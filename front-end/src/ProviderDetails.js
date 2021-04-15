@@ -6,7 +6,7 @@ import useFetch from "./useFetch";
 
 const ProviderDetails = () => {
     const { id } = useParams();
-    const { providers, error, isPending } = useFetch('http://localhost:8000/providers/' + id)
+    const { providers, error, isPending } = useFetch('http://localhost:5000/providers/' + id)
 
     return (
         <div className="provider-details">
