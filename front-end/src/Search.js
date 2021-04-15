@@ -5,43 +5,18 @@ import { FaHandsHelping, FaGithub } from 'react-icons/fa';
 
 const Search = () => {
     const { providers, isPending, error } = useFetch('http://localhost:5000/providers/list');
-    //const url = 'http://localhost:5000/providers/list';
-    
-    //console.log("Providers= ", providers);
-
+  
     const nameFromLocalStorage = localStorage.getItem('myFilterName') || "";
     const [filterName, setFilterName] = useState(nameFromLocalStorage);
-    
-    
+        
     useEffect(() => {
         localStorage.setItem('myFilterName', filterName)
     }, [filterName]);
 
-    
-    
-
-    //const [filterName, setFilterName] = useState("");
-    /*
-    function useLocalState(localItem) {
-        const [filterName, setFilterName] = useState(localStorage.getItem('myFilterName'));
-
-        return [filterName, setFilterName];
-    }
-    */
-   /*
-    const [filterName, setFilterName] = useState(() => {
-        if (localStorage.getItem('myFilterName') === "")
-            return("");
-        else
-            return(localStorage.getItem('myFilterName'));
-    });
-    */
-    
     const [service, setService] = useState("");
 
     const updateName = (e) => {
         setFilterName(e.target.value);
-        //localStorage.setItem('myFilterName', e.target.value);
     }
 
     const defaultCheckboxes = {
@@ -119,7 +94,6 @@ const Search = () => {
     };
 
     assignDistance();
-    //console.log("My original, sortable list: ", providers);
 
     function sortByDistance(property) {
         return function(a,b) {
@@ -131,8 +105,6 @@ const Search = () => {
         }
     }
     const sortedProviders = [].concat(providers).sort(sortByDistance("distanceCrow"));
-    //console.log("My new sorted list: ", sortedProviders);
-    //console.log("Hopefully still my original list: ", providers);
 
     return (
         <div className="search">
@@ -143,20 +115,6 @@ const Search = () => {
                     <h4>Filter by name:</h4>
                     <input type="search" value={filterName} onChange={updateName}/>
                 </div>
-
-                {/*
-                <div className="ui-filter-by-services">
-                    <label>Services:</label>
-                    <select
-                        value={service}
-                        onChange={(e) => setService(e.target.value)}
-                    >
-                        <option value="null">select one</option>
-                        <option value="medical care">medical care</option>
-                        <option value="clothing">clothing</option>
-                    </select>
-                </div>
-                */}
 
                 <div className="ui-checkboxes-services">
                     <form>
@@ -171,18 +129,6 @@ const Search = () => {
                             Adoption
                         </label>
                         <br />
-                        {/*
-                        <label>
-                            <input
-                                type="checkbox"
-                                name="hookBurial"
-                                checked={state.hookBurial}
-                                onChange={handleChange}
-                            />
-                            Burial
-                        </label>
-                        <br />
-                        */}
                         <label>
                             <input
                                 type="checkbox"
@@ -233,18 +179,6 @@ const Search = () => {
                             Disability
                         </label>
                         <br />
-                        {/*
-                        <label>
-                            <input
-                                type="checkbox"
-                                name="hookDisaster"
-                                checked={state.hookDisaster}
-                                onChange={handleChange}
-                            />
-                            Disaster
-                        </label>
-                        <br />
-                        */}
                         <label>
                             <input
                                 type="checkbox"
