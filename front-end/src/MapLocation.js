@@ -35,8 +35,9 @@ const MapLocation = (props) => {
 
 
     //providers && providers.longitude && console.log("logging providers: ", providers.longitude);
-    props && props.provider && console.log("logging provider's longitude: ", props.provider.longitude);
-    
+    //props && props.provider && console.log("logging provider's longitude: ", props.provider.longitude);
+    //props && props.provider && console.log("logging provider's longitude: ", props.provider.longitude);
+
     const [myDistance, setMyDistance] = useState("");
     const [myDuration, setMyDuration] = useState("");
     const [myFrom, setMyFrom] = useState("");
