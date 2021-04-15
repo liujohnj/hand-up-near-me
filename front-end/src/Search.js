@@ -43,7 +43,7 @@ const Search = () => {
     }
 
     const defaultCheckboxes = {
-        hookAdotpion: false,
+        hookAdoption: false,
         hookBurial: false,
         hookChildcare: false,
         hookClothing: false,
