@@ -10,21 +10,8 @@ import { useState, useEffect, useLocalStorage } from 'react';
 
 const EditProfile = () => {
     const { id } = useParams();
-    const { providers, error, isPending } = useFetch('http://localhost:8000/providers/' + id)
+    const { providers, error, isPending } = useFetch('http://localhost:5000/providers/' + id)
 
-    /*
-    const fs = require('fs');
-    fs.readfile('./data/db.json', 'utf8', (err, data) => {
-        if (err) {
-            console.log('Error reading file from disk: ${err}');
-        } else {
-            const databases = JSON.parse(data);
-            databases.forEach(dbf => {
-                console.log('${dbf.id}: ${dbf.name}');
-            });
-        }
-    });
-    */
     
     /*
     const defaultStrCheckboxes = JSON.stringify(defaultCheckboxes);

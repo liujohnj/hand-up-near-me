@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ProviderDetails from './ProviderDetails';
 import EditProfile from './EditProfile';
 import NotFound from './NotFound';
+import Login from './Login';
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <Route path="/contact">
               <Contact />
+            </Route>
+            <Route path="/login">
+              <Login />
             </Route>
             <Route path="/providers/:id">
               <ProviderDetails />
