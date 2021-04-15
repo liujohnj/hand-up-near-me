@@ -70,7 +70,7 @@ const Map3 = () => {
                 <GoogleMap
                     mapContainerStyle={containerStyle}
                     center={center}
-                    zoom={12}
+                    zoom={13}
                 >
                     { /* Child components, such as markers, info windows, etc. */ }
                     <Marker key="My location" position={{lat:29.648530696818543, lng:-82.34430222465772}} icon={originIcon}/>
