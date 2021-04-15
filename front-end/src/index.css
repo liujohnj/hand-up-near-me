@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+/* base styles */
+* {
+  /* box-sizing: border-box; */
+  /* padding: 0; */
+  margin: 0;
+  font-family: "Quicksand";
+  /* color: rgb(15, 15, 15) */;
+}
+.navbar {
+  background-color: darkgray;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 auto;
+  border-bottom: 1px solid #f2f2f2;
+}
+.navbar h1 {
+  color: white;
+  background-color: darkgray;
+}
+.navbar .links {
+  margin-left: auto;
+  background-color: darkgray;
+}
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+  background-color: darkgray;
+  color: white;
+}
+.navbar a:hover {
+  color: #f1356d;
+}
+.content {
+  max-width: 100%;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+/* Provider previews / list */
+.provider-preview {
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa; 
+}
+
+.provider-preview:hover {
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+
+.provider-preview h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 8px;
+}
+
+.provider-preview a{
+  text-decoration: none;
+}
+
+.provider-details h2{
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 10px;
+}
+
+.provider-details div {
+  margin: 20px 0;
+}
+
+.provider-details button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.search {
+  background-color: rgb(254, 254, 254);
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template: 1fr 1fr 1fr 1fr / 1fr 4fr;
+  gap: 10px;
+  grid-template-areas:
+  "search-sidebar results-area"
+  "ui-filter-by-name results-area"
+  "ui-filter-by-services results-area"
+  "ui-checkboxes-services results-area"
+  ;
+}
+
+.search-sidebar {
+  /*background-color: lightgray;*/
+  grid-area: search-sidebar;
+  border-right-color: lightgray;
+  border-right-style: solid;
+  }
+
+.ui-filter-by-name {
+  /*background-color: lightgoldenrodyellow;*/
+  margin: 20px 0px 10px 0px;
+  grid-area: ui-filter-by-name;
+}
+
+.ui-filter-by-services {
+  /*background-color: lightgreen;*/
+  margin: 40px 0px 10px 0px;
+  grid-area: ui-filter-by-services;
+}
+
+.ui-checkboxes-services {
+  /*background-color: lightpink;*/
+  margin: 40px 0px 10px 0px;
+  grid-area: ui-checkboxes-services;
+}
+
+.results-area {
+  /*background-color: lightblue;*/
+  grid-area: results-area;
+  margin: 0px 10px 10px 10px;
+  
+}
+
+.fa {
+  color: blue;
+  size: 3em;
+}
