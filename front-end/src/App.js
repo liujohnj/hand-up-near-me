@@ -7,6 +7,7 @@ import Contact from './Contact';
 import Map3 from './Map3';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ProviderDetails from './ProviderDetails';
+import EditProfile from './EditProfile';
 import NotFound from './NotFound';
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
             </Route>
             <Route path="/providers/:id">
               <ProviderDetails />
+            </Route>
+            <Route path="/editprofile/:id">
+              <EditProfile />
             </Route>
             <Route path="*">
               <NotFound />
