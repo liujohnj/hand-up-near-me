@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const providerSchema = new Schema({
-  id: { type: Number },
+  pid: { type: Number },
   username: { type: String },
   passwordHash: { type: String },
   name: { type: String },

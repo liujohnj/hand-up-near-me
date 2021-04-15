@@ -1,7 +1,7 @@
 {
     "providers": [
         {
-            "id": 1,
+            "pid": 1,
             "username": "",
             "passwordHash": "",
             "name": "Helping Hands Clinic",
@@ -65,7 +65,7 @@
         },
 
         {
-            "id": 2,
+            "pid": 2,
             "username": "",
             "passwordHash": "",
             "name": "North Central Florida Central Alliance for the Homeless and Hungry",
@@ -128,7 +128,7 @@
             "hasVisionCare": false
         },
         {
-            "id": 3,
+            "pid": 3,
             "username": "",
             "passwordHash": "",
             "name": "Catholic Charities - Gainesville Regional Office",
