@@ -1,9 +1,9 @@
 import ProviderList from './ProviderList';
 import useFetch from './useFetch';
 import { useState, useEffect, useLocalStorage } from 'react';
-import { FaHandsHelping, FaGithub } from 'react-icons/fa';
 
 const Search = () => {
+    
     const { providers, isPending, error } = useFetch('http://localhost:5000/providers/list');
   
     const nameFromLocalStorage = localStorage.getItem('myFilterName') || "";
@@ -13,7 +13,6 @@ const Search = () => {
         localStorage.setItem('myFilterName', filterName)
     }, [filterName]);
 
-    const [service, setService] = useState("");
 
     const updateName = (e) => {
         setFilterName(e.target.value);
@@ -21,13 +20,11 @@ const Search = () => {
 
     const defaultCheckboxes = {
         hookAdoption: false,
-        hookBurial: false,
         hookChildcare: false,
         hookClothing: false,
         hookCrisisCounseling: false,
         hookDentalCare: false,
         hookDisability: false,
-        hookDisaster: false,
         hookDomesticViolence: false,
         hookEducation: false,
         hookElderServices: false,
@@ -38,18 +35,16 @@ const Search = () => {
         hookInfoReferral: false,        
         hookMedicalCare: false,
         hookMentalHealth: false,
-        hookOther: false,
         hookPregnancyServices: false,
         hookPrescriptionAssistance: false,
         hooksShelters: false,
-        hookSocialSecurity: false,
         hookSubstanceAbuse: false,
         hookTransportation: false,
-        hookUtilities: false,
         hookVeterans: false,
         hookVeterinary: false,
         hookVoterRegistration: false,
-        hookVisionCare: false
+        hookVisionCare: false,
+        hookOther: false,
     }
 
     const defaultStrCheckboxes = JSON.stringify(defaultCheckboxes);
@@ -118,7 +113,7 @@ const Search = () => {
 
                 <div className="ui-checkboxes-services">
                     <form>
-                        <h4>By services:</h4>
+                        <h4>Filter by services:</h4>
                         <label>
                             <input
                                 type="checkbox"
@@ -292,11 +287,11 @@ const Search = () => {
                         <label>
                             <input
                                 type="checkbox"
-                                name="hookPrescriptionServices"
-                                checked={state.hookPrescriptionServices}
+                                name="hookPrescriptionAssistance"
+                                checked={state.hookPrescriptionAssistance}
                                 onChange={handleChange}
                             />
-                            Prescription Services
+                            Prescription Assistance
                         </label>
                         <br />
                         <label>
@@ -307,16 +302,6 @@ const Search = () => {
                                 onChange={handleChange}
                             />
                             Shelters
-                        </label>
-                        <br />
-                        <label>
-                            <input
-                                type="checkbox"
-                                name="hookSocialSecurity"
-                                checked={state.hookSocialSecurity}
-                                onChange={handleChange}
-                            />
-                            Social Security
                         </label>
                         <br />
                         <label>
@@ -409,22 +394,20 @@ const Search = () => {
                     provider =>
                         (filterName !== "" && provider.name.toLowerCase().includes(filterName.toLowerCase())) ||
                         (
-                            (!filterName && !state.hookAdoption && !state.hookBurial && !state.hookChildcare && !state.hookClothing &&
+                            (!filterName && !state.hookAdoption && !state.hookChildcare &&
                                 !state.hookClothing && !state.hookCrisisCounseling && !state.hookDentalCare && !state.hookDisability &&
-                                !state.hookDisaster && !state.hookDomesticViolence && !state.hookEducation && !state.hookElderServices &&
+                                !state.hookDomesticViolence && !state.hookEducation && !state.hookElderServices &&
                                 !state.hookEmploymentServices && !state.hookFoodAssistance && !state.hookHIVServices &&
                                 !state.hookImmigration && !state.hookInfoReferral && !state.hookMedicalCare && !state.hookMentalHealth &&
                                 !state.hookPregnancyServices && !state.hookPrescriptionAssistance && !state.hookShelters &&
-                                !state.hookSocialSecurity && !state.hookSubstanceAbuse && !state.hookTransportation && !state.hookUtilities &&
-                                !state.hookVeterans && !state.hookVeterinary && !state.hookVoterRegistration && !state.hookOther) ||
+                                !state.hookSubstanceAbuse && !state.hookTransportation && !state.hookVeterans &&
+                                !state.hookVeterinary && !state.hookVoterRegistration && !state.hookVision && !state.hookOther) ||
                             ((state.hookAdoption && provider.hasAdoption)) ||
-                            ((state.hookBurial && provider.hasBurial)) ||
                             ((state.hookChildcare && provider.hasChildcare)) ||
                             ((state.hookClothing && provider.hasClothing)) ||
                             ((state.hookCrisisCounseling && provider.hasCrisisCounseling)) ||
                             ((state.hookDentalCare && provider.hasDentalCare)) ||
                             ((state.hookDisability && provider.hasDisability)) ||
-                            ((state.hookDisaster && provider.hasDisaster)) ||
                             ((state.hookDomesticViolence && provider.hasDomesticViolence)) ||
                             ((state.hookEducation && provider.hasEducation)) ||
                             ((state.hookElderServices && provider.hasElderServices)) ||
@@ -438,16 +421,16 @@ const Search = () => {
                             ((state.hookPregnancyServices && provider.hasPregnancyServices)) ||
                             ((state.hookPrescriptionAssistance && provider.hasPrescriptionAssistance)) ||
                             ((state.hookShelters && provider.hasShelters)) ||
-                            ((state.hookSocialSecurity && provider.hasSocialSecurity)) ||
                             ((state.hookSubstanceAbuse && provider.hasSubstanceAbuse)) ||
                             ((state.hookTransportation && provider.hasTransportation)) ||
                             ((state.hookUtilities && provider.hasUtilities)) ||
                             ((state.hookVeterans && provider.hasVeterans)) ||
                             ((state.hookVeterinary && provider.hasVeterinary)) ||
                             ((state.hookVoterRegistration && provider.hasVoterRegistration)) ||
-                            ((state.hookVisionCare && provider.hasVisionCare))
+                            ((state.hookVisionCare && provider.hasVisionCare)) ||
+                            ((state.hookOther && provider.hasOther))
                         )
-                    )} title="Search:" />}
+                    )} title="Search results:" />}
             </div>
             
         </div>

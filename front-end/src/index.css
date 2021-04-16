@@ -111,13 +111,13 @@
 
 .ui-filter-by-services {
   /*background-color: lightgreen;*/
-  margin: 40px 0px 10px 0px;
+  margin: 20px 0px 10px 0px;
   grid-area: ui-filter-by-services;
 }
 
 .ui-checkboxes-services {
   /*background-color: lightpink;*/
-  margin: 40px 0px 10px 0px;
+  margin: 20px 0px 10px 0px;
   grid-area: ui-checkboxes-services;
 }
 
