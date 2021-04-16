@@ -8,6 +8,8 @@ const Search = () => {
   
     const nameFromLocalStorage = localStorage.getItem('myFilterName') || "";
     const [filterName, setFilterName] = useState(nameFromLocalStorage);
+    const [searchByDistance, setSearchByDistance] = useState(false);
+    const [dropdown, setDropdown] = useState("32601");
         
     useEffect(() => {
         localStorage.setItem('myFilterName', filterName)
@@ -54,7 +56,7 @@ const Search = () => {
     const [state, setState] = useState(checkboxesFromLocalStorage);
 
     useEffect(() => {
-        localStorage.setItem('myCheckboxes', JSON.stringify(state))
+        localStorage.setItem('myCheckboxes', JSON.stringify(state));
     }, [state]);
 
     function handleChange(e) {
@@ -65,12 +67,69 @@ const Search = () => {
         });
     }
 
+    const handleSearchByDistance = e => {
+        setSearchByDistance(e.target.checked);
+     };
+
+    const handleChangeDropdown = e => {
+        setDropdown(e.target.value);
+        console.log("new coord: ", e);
+     };
+
     function CalculateDistance(provider) {
         const haversine = require('haversine');
+        var lat = 29.64858664180642;    // coordinates of UFCISE bldg
+        var long = -82.34429149440759;
+
+        switch (dropdown) {
+            case "32601":
+                lat = 29.63964;
+                long = -82.32146;
+                break;
+            case "32603":
+                lat = 29.65082;
+                long = -82.35590;
+                break;
+            case "32605":
+                lat = 29.68129;
+                long = -82.38564;
+                break;
+            case "32606":
+                lat = 29.68419;
+                long = -82.44238;
+                break;
+            case "32607":
+                lat = 29.63842;
+                long = -82.42252;
+                break;
+            case "32608":
+                lat = 2958608;
+                long = -8240314;
+                break;
+            case "32609":
+                lat = 29.75794;
+                long = -82.27576;
+                break;
+            case "32611":
+                lat = 2964487;
+                long = -82.35437;
+                break;
+            case "32641":
+                lat = 29.64289;
+                long = -82.24357;
+                break;
+            case "32653":
+                lat = 29.76660;
+                long = -82.41233;
+                break;
+            default:
+                lat = 29.64858664180642;    //coordinates of UFCISE bldg
+                long = -82.34429149440759;
+        }
 
         const start = {
-            latitude: 29.64858664180642,    //coordinates for UF CISE bldg
-            longitude: -82.34429149440759
+            latitude: lat,
+            longitude: long
         }
         
         const end = {
@@ -391,6 +450,28 @@ const Search = () => {
                         </label>
                         <br />
                         <br />
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="searchByDistance"
+                                onChange={handleSearchByDistance}
+                            />
+                            Search by Distance from ZIP code:
+                        </label>
+                        <select value={dropdown} onChange={handleChangeDropdown}>
+                            <option value="32601">32601</option>
+                            <option value="32603">32603</option>
+                            <option value="32605">32605</option>
+                            <option value="32606">32606</option>
+                            <option value="32607">32607</option>
+                            <option value="32608">32608</option>
+                            <option value="32609">32609</option>
+                            <option value="32611">32611</option>
+                            <option value="32641">32641</option>
+                            <option value="32653">32653</option>
+                        </select>
+                        <br />
+                        <br />
                         <input type="submit" value="RESET SEARCH" onClick={handleClearSearch} />
                     </form>
                 </div>
@@ -438,7 +519,7 @@ const Search = () => {
                             ((state.hookVisionCare && provider.hasVisionCare)) ||
                             ((state.hookOther && provider.hasOther))
                         )
-                    )} title="Search results:" />}
+                    )} title="Search results:" distanceFlag={searchByDistance} />}
             </div>
             
         </div>
