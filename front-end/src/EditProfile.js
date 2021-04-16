@@ -3,73 +3,79 @@ import ReturnServices from "./ReturnServices";
 import { useState, useEffect } from 'react';
 
 const EditProfile = () => {
-   
-    const [providers, setProviders] = useState([]);
+    const [originalData, setOriginalData] = useState(null)
+    const [modifiedData, setModifiedData] = useState({
+        name: '',
+        address1: '',
+        address2: '',
+        city: '',
+        state: '',
+        zipCode: ''
+    })
     const { id } = useParams();
-    const url = ('http://localhost:5000/providers/' + id);
 
     useEffect(() => {
        const fetchData = async () => {
-           const response = await fetch(url);
+           const response = await fetch(`http://localhost:5000/providers/${id}`);
            const newData = await response.json();
-           setProviders(newData);
+           setOriginalData(newData);
         };
         fetchData();
-    }, []);
-
-    const options = {
-        method: 'POST',
-        body: JSON.stringify(
-            {
-                "name":providers.name,
-                "address1":providers.address1,
-                "address2":providers.address2,
-                "city":providers.city,
-                "state":providers.state,
-                "zipCode":providers.zipCode
-            }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    };
+    }, [id]);
 
     const handleChangeTextField = e => {
-        setProviders({ [e.target.name] : e.target.value });
+        setModifiedData({ ...modifiedData, [e.target.name] : e.target.value.trim() })
     }
 
-    const handleSubmitTextFields = e => {
+    const handleSubmitTextFields = (e) => {
+        e.preventDefault()
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(
+                {
+                    "name": modifiedData.name || originalData.name,
+                    "address1": modifiedData.address1 || originalData.address1,
+                    "address2": modifiedData.address2 || originalData.address2,
+                    "city": modifiedData.city || originalData.city,
+                    "state": modifiedData.state || originalData.state,
+                    "zipCode": modifiedData.zipCode || originalData.zipCode
+                }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
         fetch('http://localhost:5000/providers/update/' + id, options)
             .then(res => res.json())
             .then(res => console.log("res: ", res));
     }
-    
+
     return (
         <div className="provider-details">
-            { providers && (
+            { originalData && (
                 <article>
                     <form>
                         Provider Name:
-                        <input type="text" size="50" name="name" placeholder={ providers.name } onChange={handleChangeTextField} />
+                        <input type="text" size="50" name="name" value={modifiedData.name} placeholder={ originalData.name } onChange={handleChangeTextField} />
                         <br />
                         <br />
                         Street address:
-                        <input type="text" size="50" name="address1" placeholder={ providers.address1 } onChange={handleChangeTextField} />
+                        <input type="text" size="50" name="address1" value={modifiedData.address1} placeholder={ originalData.address1 } onChange={handleChangeTextField} />
                         <br />
                         <br />
                         Suite #:
-                        <input type="text" size="50" name="address2" placeholder={ providers.address2 } onChange={handleChangeTextField} />
+                        <input type="text" size="50" name="address2" value={modifiedData.address2} placeholder={ originalData.address2 } onChange={handleChangeTextField} />
                         <br />
                         <br />
                         City:
-                        <input type="text" size="50" name="icity" placeholder={ providers.city } onChange={handleChangeTextField}/>
+                        <input type="text" size="50" name="city" value={modifiedData.city} placeholder={ originalData.city } onChange={handleChangeTextField}/>
                         <br />
                         <br />
                         State:
-                        <input type="text" size="50" name="istate" placeholder={ providers.state } onChange={handleChangeTextField}/>
+                        <input type="text" size="50" name="state" value={modifiedData.state} placeholder={ originalData.state } onChange={handleChangeTextField}/>
                         <br />
                         <br />
                         Zip code:
-                        <input type="text" size="50" name="zipCode" placeholder={ providers.zipCode } onChange={handleChangeTextField} />
+                        <input type="text" size="50" name="zipCode" value={modifiedData.zipCode} placeholder={ originalData.zipCode } onChange={handleChangeTextField} />
                         <br />
                         <br />
                         <input type="submit" value="update" onClick={handleSubmitTextFields} />
@@ -79,9 +85,9 @@ const EditProfile = () => {
                 </article>
             )}
             <br />
-            <ReturnServices provider={ providers } />
+            <ReturnServices provider={ originalData } />
         </div>
     );
 }
- 
+
 export default EditProfile;
