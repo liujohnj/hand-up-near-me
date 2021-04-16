@@ -101,6 +101,12 @@ const Search = () => {
     }
     const sortedProviders = [].concat(providers).sort(sortByDistance("distanceCrow"));
 
+    const handleClearSearch = e => {
+       setState(defaultCheckboxes);
+       setFilterName("");
+       localStorage.clear();
+    };
+
     return (
         <div className="search">
             <div className="search-sidebar">
@@ -384,6 +390,8 @@ const Search = () => {
                             Other
                         </label>
                         <br />
+                        <br />
+                        <input type="submit" value="RESET SEARCH" onClick={handleClearSearch} />
                     </form>
                 </div>
             </div>
