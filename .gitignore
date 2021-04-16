@@ -2,17 +2,16 @@
 
 # dependencies
 /node_modules
+/back-end/node_modules
 /front-end/node_modules
-/front-end/.pnp
-/front-end/.pnp.js
+/.pnp
+.pnp.js
 
 # testing
 /coverage
-/front-end/coverage
 
 # production
 /build
-/front-end/build
 
 # misc
 .DS_Store
@@ -21,22 +20,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
-/front-end/.DS_Store
-/front-end/.env
-/front-end/.env.local
-/front-end/.env.development.local
-/front-end/.env.test.local
-/front-end/.env.production.local
-
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# protect mongoDB credentials
-
-
-# personal files
-
-/back-end/node_modules
-/back-end/.env
