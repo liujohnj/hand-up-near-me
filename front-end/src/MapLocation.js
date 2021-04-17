@@ -28,8 +28,8 @@ const MapLocation = (props) => {
         center = {
             //lat: 29.648530696818543,
             //lng: -82.34430222465772
-            lat: props.provider.latitude,
-            lng: props.provider.longitude
+            lat: Number(props.provider.latitude),
+            lng: Number(props.provider.longitude)
         };
     }
 

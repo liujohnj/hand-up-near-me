@@ -103,15 +103,15 @@ const Search = () => {
                 long = -82.42252;
                 break;
             case "32608":
-                lat = 2958608;
-                long = -8240314;
+                lat = 29.58608;
+                long = -82.40314;
                 break;
             case "32609":
                 lat = 29.75794;
                 long = -82.27576;
                 break;
             case "32611":
-                lat = 2964487;
+                lat = 29.64487;
                 long = -82.35437;
                 break;
             case "32641":
@@ -133,8 +133,8 @@ const Search = () => {
         }
         
         const end = {
-            latitude: provider.latitude,
-            longitude: provider.longitude
+            latitude: Number(provider.latitude),
+            longitude: Number(provider.longitude)
         }
         
         const distance = haversine(start, end, {unit: 'mile'}).toFixed(2);

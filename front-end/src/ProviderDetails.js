@@ -19,6 +19,7 @@ const ProviderDetails = () => {
                     <p>{ providers.address2 }</p>
                     <p>{ providers.city + ", " + providers.state + " " + providers.zipCode }</p>
                     <p>{ "Tel: " + providers.phone }</p>
+                    <p>{ providers.url }</p>
                     <br />
                     <p>{ providers.text1 }</p>
                 </article>
