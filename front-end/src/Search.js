@@ -392,16 +392,6 @@ const Search = () => {
                         <label>
                             <input
                                 type="checkbox"
-                                name="hookUtilities"
-                                checked={state.hookUtilities}
-                                onChange={handleChange}
-                            />
-                            Utilities
-                        </label>
-                        <br />
-                        <label>
-                            <input
-                                type="checkbox"
                                 name="hookVeterans"
                                 checked={state.hookVeterans}
                                 onChange={handleChange}
@@ -490,7 +480,7 @@ const Search = () => {
                                 !state.hookImmigration && !state.hookInfoReferral && !state.hookMedicalCare && !state.hookMentalHealth &&
                                 !state.hookPregnancyServices && !state.hookPrescriptionAssistance && !state.hookShelters &&
                                 !state.hookSubstanceAbuse && !state.hookTransportation && !state.hookVeterans &&
-                                !state.hookVeterinary && !state.hookVoterRegistration && !state.hookVision && !state.hookOther) ||
+                                !state.hookVeterinary && !state.hookVoterRegistration && !state.hookVisionCare && !state.hookOther) ||
                             ((state.hookAdoption && provider.hasAdoption)) ||
                             ((state.hookChildcare && provider.hasChildcare)) ||
                             ((state.hookClothing && provider.hasClothing)) ||
@@ -512,7 +502,6 @@ const Search = () => {
                             ((state.hookShelters && provider.hasShelters)) ||
                             ((state.hookSubstanceAbuse && provider.hasSubstanceAbuse)) ||
                             ((state.hookTransportation && provider.hasTransportation)) ||
-                            ((state.hookUtilities && provider.hasUtilities)) ||
                             ((state.hookVeterans && provider.hasVeterans)) ||
                             ((state.hookVeterinary && provider.hasVeterinary)) ||
                             ((state.hookVoterRegistration && provider.hasVoterRegistration)) ||

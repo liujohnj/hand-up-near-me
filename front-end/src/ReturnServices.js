@@ -5,7 +5,6 @@ const ReturnServices = (props) => {
 
     if (props && props.provider) {
         if (props.provider.hasAdoption) { services.push("Adoption")}
-        if (props.provider.hasBurial) { services.push("Burial")}
         if (props.provider.hasChildcare) { services.push("Childcare")}
         if (props.provider.hasClothing) { services.push("Clothing")}
         if (props.provider.hasCrisisCounseling) { services.push("Crisis Counseling")}
@@ -21,6 +20,18 @@ const ReturnServices = (props) => {
         if (props.provider.hasImmigration) { services.push("Immigration")}
         if (props.provider.hasInfoReferral) { services.push("Info/Referral")}
         if (props.provider.hasMedicalCare) { services.push("Medical Care")}
+        if (props.provider.hasMentalHealth) { services.push("Mental Health")}
+        if (props.provider.hasPregnancyServices) { services.push("Pregnancy Services")}
+        if (props.provider.hasPrescriptionAssistance) { services.push("Prescription Assistance")}
+        if (props.provider.hasShelters) { services.push("Shelters")}
+        if (props.provider.hasSubstanceAbuse) { services.push("Substance Abuse")}
+        if (props.provider.hasTransportation) { services.push("Transportation")}
+        if (props.provider.hasVeterans) { services.push("Veterans")}
+        if (props.provider.hasVeterinary) { services.push("Veterinary")}
+        if (props.provider.hasVoterRegistration) { services.push("Voter Registration")}
+        if (props.provider.hasVisionCare) { services.push("Vision Care")}
+        if (props.provider.hasOther) { services.push("Other")}
+
     }
     
     return (

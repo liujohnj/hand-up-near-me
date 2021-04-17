@@ -59,7 +59,6 @@ const providerSchema = new Schema({
   hasSocialSecurity: { type: Boolean },
   hasSubstanceAbuse: { type: Boolean },
   hasTransportation: { type: Boolean },
-  hasUtilities: { type: Boolean },
   hasVeterans: { type: Boolean },
   hasVeterinary: { type: Boolean },
   hasVoterRegistration: { type: Boolean },
