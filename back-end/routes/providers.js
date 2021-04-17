@@ -21,7 +21,6 @@ router.route('/add').post((req, res) => {
   const zipCode = req.body.zipCode;
   const text = req.body.text;
   const text2 = req.body.text2;
-  const username = req.body.username;
   const password = req.body.password;
   const latitude = req.body.latitute;
   const longitude = req.body.longitude;
