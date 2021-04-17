@@ -3,7 +3,6 @@ let Provider = require('../models/provider.model');
 
 
 router.route('/list').get((req, res) => {
-  console.log("Trying to get providers from routes!");
   Provider.find()
     .then(providers => res.json(providers))
     .catch(err => res.status(400).json('Error: ' + err));
@@ -11,7 +10,6 @@ router.route('/list').get((req, res) => {
 
 
 router.route('/add').post((req, res) => {
-  console.log("Trying to add a provider from routes!");
   const username = req.body.username;
   const name = req.body.name;
   const address1 = req.body.address1;
@@ -21,7 +19,6 @@ router.route('/add').post((req, res) => {
   const zipCode = req.body.zipCode;
   const text = req.body.text;
   const text2 = req.body.text2;
-  const username = req.body.username;
   const password = req.body.password;
   const latitude = req.body.latitute;
   const longitude = req.body.longitude;
@@ -178,7 +175,6 @@ router.route('/update/:id').post((req, res) => {
 });
 
 router.route('/search').get((req, res) => {
-  console.log("Trying to search providers from routes!");
   Provider.find()
     .then(providers => res.json(providers))
     .catch(err => res.status(400).json('Error: ' + err));

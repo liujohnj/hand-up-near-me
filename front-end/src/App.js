@@ -10,6 +10,9 @@ import ProviderDetails from './ProviderDetails';
 import EditProfile from './EditProfile';
 import NotFound from './NotFound';
 import Login from './Login';
+import Dashboard from './Dashboard';
+import ProtectedRoute from "./auth/protected-route"
+import Profile from "./auth/Profile";
 
 function App() {
   return (
@@ -41,6 +44,12 @@ function App() {
             </Route>
             <Route path="/editprofile/:id">
               <EditProfile />
+            </Route>
+            <ProtectedRoute path="/profile">
+              <Profile />
+            </ProtectedRoute>
+            <Route path="/dashboard">
+              <Dashboard />
             </Route>
             <Route path="*">
               <NotFound />

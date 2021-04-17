@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const EditProfile = () => {
+
     const [originalData, setOriginalData] = useState(null);
 
     const [modifiedData, setModifiedData] = useState({
