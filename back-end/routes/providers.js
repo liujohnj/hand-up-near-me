@@ -12,8 +12,8 @@ router.route('/list').get((req, res) => {
 
 router.route('/add').post((req, res) => {
   console.log("Trying to add a provider from routes!");
-  const username = req.body.username;
   const name = req.body.name;
+  const pid = req.body.pid;
   const address1 = req.body.address1;
   const address2 = req.body.address2;
   const city = req.body.city;
@@ -21,6 +21,7 @@ router.route('/add').post((req, res) => {
   const zipCode = req.body.zipCode;
   const text = req.body.text;
   const text2 = req.body.text2;
+  const username = req.body.username;
   const password = req.body.password;
   const latitude = req.body.latitute;
   const longitude = req.body.longitude;
@@ -57,8 +58,8 @@ router.route('/add').post((req, res) => {
   const hasOther = req.body.hasOther;
 
   const newProvider = new Provider({
-    username,
     name,
+    pid,
     address1,
     address2,
     city,
@@ -124,8 +125,9 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
   Provider.findById(req.params.id)
     .then(provider => {
-      provider.username = req.body.username;
+
       provider.name = req.body.name;
+      provider.pid = req.body.pid;
       provider.address1 = req.body.address1;
       provider.address2 = req.body.address2;
       provider.city = req.body.city;
@@ -135,7 +137,7 @@ router.route('/update/:id').post((req, res) => {
       provider.text2 = req.body.text2;
       provider.username = req.body.username;
       provider.password = req.body.password;
-      provider.latitude = req.body.latitute;
+      provider.latitude = req.body.latitude;
       provider.longitude = req.body.longitude;
       provider.distanceCrow = req.body.distanceCrow;
       provider.phone = req.body.phone;

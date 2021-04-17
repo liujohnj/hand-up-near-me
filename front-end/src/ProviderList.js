@@ -16,7 +16,7 @@ const ProviderList = ({ providers, title, distanceFlag }) => {    // destructure
                         <p>{ provider && (provider.city + ", " + provider.state + " " + provider.zipCode) }</p>
                         <p>{ provider && ("Tel: " + provider.phone) }</p>
                         <br />
-                        <p>{ provider && distanceFlag && ("Distance as the crow flies: " + provider.distanceCrow + " miles")}</p>
+                        <p>{ provider && distanceFlag && ("Distance: " + provider.distanceCrow + " miles")}</p>
                     </Link>
                 </div>
             ))}

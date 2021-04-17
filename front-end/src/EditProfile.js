@@ -5,14 +5,18 @@ const EditProfile = () => {
     const [originalData, setOriginalData] = useState(null);
 
     const [modifiedData, setModifiedData] = useState({
+        pid: '',
+        username: '',
+        password: '',
         name: '',
         address1: '',
         address2: '',
         city: '',
         state: '',
         zipCode: '',
-        latitude: 0.0,
-        longitude: 0.0,
+        latitude: '',
+        longitude: '',
+        distanceCrow: '',
         phone: '',
         url: '',
         email: '',
@@ -78,6 +82,9 @@ const EditProfile = () => {
             body: JSON.stringify(
                 {
                     "name": modifiedData.name || originalData.name,
+                    "pid": modifiedData.pid || originalData.pid,
+                    "username": modifiedData.username || originalData.username,
+                    "password": modifiedData.password || originalData.passwordname,
                     "address1": modifiedData.address1 || originalData.address1,
                     "address2": modifiedData.address2 || originalData.address2,
                     "city": modifiedData.city || originalData.city,
@@ -85,6 +92,7 @@ const EditProfile = () => {
                     "zipCode": modifiedData.zipCode || originalData.zipCode,
                     "latitude": modifiedData.latitude || originalData.latitude,
                     "longitude": modifiedData.longitude || originalData.longitude,
+                    "distanceCrow": modifiedData.distanceCrow || originalData.distanceCrow,
                     "phone": modifiedData.phone || originalData.phone,
                     "url": modifiedData.url || originalData.url,
                     "email": modifiedData.email || originalData.email,

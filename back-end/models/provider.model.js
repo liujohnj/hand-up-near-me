@@ -3,18 +3,18 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const providerSchema = new Schema({
-  pid: { type: Number },
+  pid: { type: String },
   username: { type: String },
-  passwordHash: { type: String },
+  password: { type: String },
   name: { type: String },
   address1: { type: String },
   address2: { type: String },
   city: { type: String },
   state: { type: String },
   zipCode: { type: String },
-  latitude: { Number },
-  longitude: { Number },
-  distanceCrow: { Number },
+  latitude: { type: String },
+  longitude: { type: String },
+  distanceCrow: { type: String },
   phone: { type: String },
   url: { type: String },
   email: { type: String },
