@@ -12,7 +12,6 @@ router.route('/list').get((req, res) => {
 
 router.route('/add').post((req, res) => {
   console.log("Trying to add a provider from routes!");
-  const username = req.body.username;
   const name = req.body.name;
   const address1 = req.body.address1;
   const address2 = req.body.address2;

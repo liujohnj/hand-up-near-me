@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt')
 
 const Schema = mongoose.Schema;
 
 const providerSchema = new Schema({
   pid: { type: Number },
   username: { type: String },
-  passwordHash: { type: String },
+  password: { type: String },
   name: { type: String },
   address1: { type: String },
   address2: { type: String },
@@ -67,6 +68,10 @@ const providerSchema = new Schema({
 }, {
   timestamps: true,
 });
+
+providerSchema.methods.validPassword = function(password) {
+  return bcrypt.compareSync(password, this.password);
+};
 
 const Provider = mongoose.model('Provider', providerSchema);
 

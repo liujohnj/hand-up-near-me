@@ -125,8 +125,6 @@ const EditProfile = () => {
         fetch('http://localhost:5000/providers/update/' + id, options)
             .then(res => res.json())
             .then(res => console.log("res: ", res));
-        console.log("orig: ", originalData);
-        console.log("mod check: ", modifiedCheckboxes);
     }
 
 
