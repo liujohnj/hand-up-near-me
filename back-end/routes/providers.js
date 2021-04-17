@@ -3,7 +3,6 @@ let Provider = require('../models/provider.model');
 
 
 router.route('/list').get((req, res) => {
-  console.log("Trying to get providers from routes!");
   Provider.find()
     .then(providers => res.json(providers))
     .catch(err => res.status(400).json('Error: ' + err));
