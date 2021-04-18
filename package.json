@@ -11,18 +11,7 @@
   },
 
   "scripts": {
-    "back-end-start": "nodemon server.js",
-    "react-scripts": "react-scripts start",
-    "front-start": "cd front-end && npm start",
-    "back-start": "cd back-end && npm start",
-    "front-build": "cd front-end && npm run build",
-    "back-build": "cd back-end && npm run build",
-    "front-install": "cd front-end && npm install",
-    "back-install": "cd back-end && npm install",
-    "build-react-scripts": "cd front-end && react-scripts build",
-    "test": "react-scripts test",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix front-end && run build --prefix front-end",
-    "eject": "react-scripts eject"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix front-end && run build --prefix front-end"
   },
   
   "dependencies": {
