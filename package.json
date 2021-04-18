@@ -18,7 +18,7 @@
     "back-install": "cd back-end && npm install",
     "build-react-scripts": "cd front-end && react-scripts build",
     "test": "react-scripts test",
-    "heroku-postbuild": "NPM_CONFIG-PRODUCTION=false npm install --prefix front-end && run build --prefix front-end",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix front-end && run build --prefix front-end",
     "eject": "react-scripts eject"
   },
   
