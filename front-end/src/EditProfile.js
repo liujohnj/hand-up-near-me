@@ -58,7 +58,8 @@ const EditProfile = () => {
 
     useEffect(() => {
        const fetchData = async () => {
-           const response = await fetch(`http://localhost:5000/providers/${id}`);
+           //const response = await fetch(`http://localhost:5000/providers/${id}`);
+           const response = await fetch(`/providers/${id}`);  //heroku
            const newData = await response.json();
            setOriginalData(newData);
            setModifiedCheckboxes(newData);
@@ -130,7 +131,8 @@ const EditProfile = () => {
                 'Content-Type': 'application/json'
             }
         };
-        fetch('http://localhost:5000/providers/update/' + id, options)
+        //fetch('http://localhost:5000/providers/update/' + id, options)
+        fetch('/providers/update/' + id, options)  //heroku
             .then(res => res.json())
             .then(res => console.log("res: ", res));
         console.log("orig: ", originalData);

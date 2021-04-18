@@ -10,7 +10,6 @@ router.route('/list').get((req, res) => {
 
 
 router.route('/add').post((req, res) => {
-  console.log("Trying to add a provider from routes!");
   const name = req.body.name;
   const pid = req.body.pid;
   const address1 = req.body.address1;
