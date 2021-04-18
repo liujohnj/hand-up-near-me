@@ -1,11 +1,15 @@
 {
-"name": "root-directory",
+  "name": "root-directory",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "10.12.0"
+  }
+}
 
   "scripts": {
     "back-end-start": "nodemon server.js",
