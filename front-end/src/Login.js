@@ -33,8 +33,8 @@ const Login = () => {
                 'Content-Type': 'application/json'
             }
         };
-        //fetch('http://localhost:5000/providers/login/', options)
-        fetch('/providers/login/', options)  //heroku
+        fetch('http://localhost:5000/providers/login/', options)
+        //fetch('/providers/login/', options)  //heroku
             .then(res => res.json())
             .then(res => console.log("res: ", res));
     

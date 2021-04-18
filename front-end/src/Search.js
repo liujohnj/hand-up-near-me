@@ -4,8 +4,8 @@ import { useState, useEffect, useLocalStorage } from 'react';
 
 const Search = () => {
     
-    //const { providers, isPending, error } = useFetch('http://localhost:5000/providers/list');
-    const { providers, isPending, error } = useFetch('/providers/list');  //Heroku
+    const { providers, isPending, error } = useFetch('http://localhost:5000/providers/list');
+    //const { providers, isPending, error } = useFetch('/providers/list');  //Heroku
   
     const nameFromLocalStorage = localStorage.getItem('myFilterName') || "";
     const [filterName, setFilterName] = useState(nameFromLocalStorage);
