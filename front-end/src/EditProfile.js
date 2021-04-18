@@ -59,11 +59,14 @@ const EditProfile = () => {
     
     const isProduction = apiDomain();
 
+    const isLoading = true;
+
     useEffect(() => {
        const fetchData = async () => {
            //const response = await fetch(`${isProduction}/providers/${id}`);
            const response = await fetch(`/providers/${id}`);  //heroku production path
            const newData = await response.json();
+           isLoading = false;
            setOriginalData(newData);
            setModifiedCheckboxes(newData);
         };
@@ -147,6 +150,7 @@ const EditProfile = () => {
 
     return (
         <div className="provider-details">
+            { isLoading && <div>Loading...</div> }
             { originalData && (
                 <article>
                     <form>

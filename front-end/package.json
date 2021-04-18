@@ -20,6 +20,8 @@
     "use-position": "0.0.8",
     "web-vitals": "^1.1.0"
   },
+
+  "proxy": "http://localhost:5000",
   
   "scripts": {
     "start": "react-scripts start",
