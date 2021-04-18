@@ -1,11 +1,13 @@
 import ProviderList from './ProviderList';
 import useFetch from './useFetch';
 import { useState, useEffect, useLocalStorage } from 'react';
+import { apiDomain } from './apiDomain'
 
 const Search = () => {
     
-    const { providers, isPending, error } = useFetch('http://localhost:5000/providers/list');
-    //const { providers, isPending, error } = useFetch('/providers/list');  //Heroku
+    // production (Heroku) versus development
+    const isProduction = apiDomain();
+    const { providers, isPending, error } = useFetch(isProduction + '/providers/list');
   
     const nameFromLocalStorage = localStorage.getItem('myFilterName') || "";
     const [filterName, setFilterName] = useState(nameFromLocalStorage);

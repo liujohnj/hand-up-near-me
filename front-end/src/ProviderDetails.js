@@ -3,10 +3,13 @@ import CalcDistance from "./CalcDistance";
 import MapLocation from "./MapLocation";
 import ReturnServices from "./ReturnServices";
 import useFetch from "./useFetch";
+import { apiDomain } from './apiDomain'
 
 const ProviderDetails = () => {
     const { id } = useParams();
-    const { providers, error, isPending } = useFetch('http://localhost:5000/providers/' + id)
+
+    const isProduction = apiDomain();
+    const { providers, error, isPending } = useFetch(isProduction + '/providers/' + id)
     //const { providers, error, isPending } = useFetch('/providers/' + id)  //heroku
 
     return (

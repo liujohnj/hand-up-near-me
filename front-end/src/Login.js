@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';  //so that React handles routing in browser
 import { useState, useEffect } from 'react';
-
+import { apiDomain } from './apiDomain'
 
 
 const Login = () => {
@@ -33,7 +33,9 @@ const Login = () => {
                 'Content-Type': 'application/json'
             }
         };
-        fetch('http://localhost:5000/providers/login/', options)
+
+        const isProduction = apiDomain();
+        fetch(isProduction+'/providers/login/', options)
         //fetch('/providers/login/', options)  //heroku
             .then(res => res.json())
             .then(res => console.log("res: ", res));

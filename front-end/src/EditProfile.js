@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import { apiDomain } from './apiDomain';
 
 const EditProfile = () => {
     const [originalData, setOriginalData] = useState(null);
@@ -55,10 +56,12 @@ const EditProfile = () => {
     });
 
     const { id } = useParams();
+    
+    const isProduction = apiDomain();
 
     useEffect(() => {
        const fetchData = async () => {
-           const response = await fetch(`http://localhost:5000/providers/${id}`);
+           const response = await fetch(`${isProduction}/providers/${id}`);
            //const response = await fetch(`/providers/${id}`);  //heroku
            const newData = await response.json();
            setOriginalData(newData);
@@ -66,6 +69,7 @@ const EditProfile = () => {
         };
         fetchData();
     }, [id]);
+;
 
     const handleChangeTextField = e => {
         setModifiedData({ ...modifiedData, [e.target.name] : e.target.value });
@@ -131,7 +135,8 @@ const EditProfile = () => {
                 'Content-Type': 'application/json'
             }
         };
-        fetch('http://localhost:5000/providers/update/' + id, options)
+        const isProduction = apiDomain();
+        fetch(isProduction + '/providers/update/' + id, options)
         //fetch('/providers/update/' + id, options)  //heroku
             .then(res => res.json())
             .then(res => console.log("res: ", res));
