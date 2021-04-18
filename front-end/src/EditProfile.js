@@ -62,12 +62,10 @@ const EditProfile = () => {
     useEffect(() => {
        const fetchData = async () => {
            //const response = await fetch(`${isProduction}/providers/${id}`);
-           const response = await fetch(`/providers/${id}`);  //heroku
+           const response = await fetch(`/providers/${id}`);  //heroku production path
            const newData = await response.json();
            setOriginalData(newData);
            setModifiedCheckboxes(newData);
-           console.log("res: ", response.json());
-           console.log("txt: ", response.text());
         };
         fetchData();
     }, [id]);

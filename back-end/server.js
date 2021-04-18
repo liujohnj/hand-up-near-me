@@ -19,7 +19,12 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 })
 
-//make heroku happy???
+
+const providersRouter = require('./routes/providers');
+app.use('/providers', providersRouter);
+//THE ABOVE APP.USE STATEMENT MUST MUST MUST GO BEFORE THE BELOW OR GET JSON PARSING ERROR
+
+//for heroku production
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../front-end/build')));
     app.get('*', (req, res) => {
@@ -32,9 +37,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-const providersRouter = require('./routes/providers');
 
-app.use('/providers', providersRouter);
 
 /*
 app.get("/", (req, res) => {
