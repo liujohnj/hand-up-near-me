@@ -59,14 +59,14 @@ const EditProfile = () => {
     
     const isProduction = apiDomain();
 
-    const isLoading = true;
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-       const fetchData = async () => {
+        const fetchData = async () => {
            //const response = await fetch(`${isProduction}/providers/${id}`);
            const response = await fetch(`/providers/${id}`);  //heroku production path
            const newData = await response.json();
-           isLoading = false;
+           setIsLoading(false);
            setOriginalData(newData);
            setModifiedCheckboxes(newData);
         };
