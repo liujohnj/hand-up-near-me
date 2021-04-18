@@ -23,8 +23,8 @@ const providersRouter = require('./routes/providers');
 app.use('/providers', providersRouter);
 
 app.get("/", (req, res) => {
-    res.redirect('/providers');     //make heroku happy???
-})
+    res.redirect('/search');     //make heroku happy???
+});
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

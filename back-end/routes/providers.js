@@ -183,4 +183,8 @@ router.route('/search').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route(("/").get((req, res) => {
+  res.redirect('/search');     //make heroku happy???
+}));
+
 module.exports = router;
