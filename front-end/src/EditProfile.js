@@ -61,11 +61,13 @@ const EditProfile = () => {
 
     useEffect(() => {
        const fetchData = async () => {
-           const response = await fetch(`${isProduction}/providers/${id}`);
-           //const response = await fetch(`/providers/${id}`);  //heroku
+           //const response = await fetch(`${isProduction}/providers/${id}`);
+           const response = await fetch(`/providers/${id}`);  //heroku
            const newData = await response.json();
            setOriginalData(newData);
            setModifiedCheckboxes(newData);
+           console.log("res: ", response.json());
+           console.log("txt: ", response.text());
         };
         fetchData();
     }, [id]);
@@ -136,8 +138,8 @@ const EditProfile = () => {
             }
         };
         const isProduction = apiDomain();
-        fetch(isProduction + '/providers/update/' + id, options)
-        //fetch('/providers/update/' + id, options)  //heroku
+        //fetch(isProduction + '/providers/update/' + id, options)
+        fetch('/providers/update/' + id, options)  //heroku
             .then(res => res.json())
             .then(res => console.log("res: ", res));
         console.log("orig: ", originalData);

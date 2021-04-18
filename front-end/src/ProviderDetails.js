@@ -9,8 +9,8 @@ const ProviderDetails = () => {
     const { id } = useParams();
 
     const isProduction = apiDomain();
-    const { providers, error, isPending } = useFetch(isProduction + '/providers/' + id)
-    //const { providers, error, isPending } = useFetch('/providers/' + id)  //heroku
+    //const { providers, error, isPending } = useFetch(isProduction + '/providers/' + id)
+    const { providers, error, isPending } = useFetch('/providers/' + id)  //heroku
 
     return (
         <div className="provider-details">

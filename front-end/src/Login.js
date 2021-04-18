@@ -35,8 +35,8 @@ const Login = () => {
         };
 
         const isProduction = apiDomain();
-        fetch(isProduction+'/providers/login/', options)
-        //fetch('/providers/login/', options)  //heroku
+        //fetch(isProduction+'/providers/login/', options)
+        fetch('/providers/login/', options)  //heroku
             .then(res => res.json())
             .then(res => console.log("res: ", res));
     

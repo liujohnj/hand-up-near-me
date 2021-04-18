@@ -7,7 +7,8 @@ const Search = () => {
     
     // production (Heroku) versus development
     const isProduction = apiDomain();
-    const { providers, isPending, error } = useFetch(isProduction + '/providers/list');
+    //const { providers, isPending, error } = useFetch(isProduction + '/providers/list');
+    const { providers, isPending, error } = useFetch('/providers/list');
   
     const nameFromLocalStorage = localStorage.getItem('myFilterName') || "";
     const [filterName, setFilterName] = useState(nameFromLocalStorage);

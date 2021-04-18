@@ -2,8 +2,8 @@ import ProviderList from './ProviderList';
 import useFetch from './useFetch';
 
 const Browse = () => {
-    const { providers, isPending, error } = useFetch('http://localhost:8000/providers');
-
+    //const { providers, isPending, error } = useFetch('http://localhost:5000/providers');
+    const { providers, isPending, error } = useFetch('/providers');
 
     return (
         <div className="browse">
