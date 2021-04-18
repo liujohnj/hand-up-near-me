@@ -8,8 +8,7 @@
   "license": "ISC",
   "engines": {
     "node": "10.12.0"
-  }
-}
+  },
 
   "scripts": {
     "back-end-start": "nodemon server.js",
