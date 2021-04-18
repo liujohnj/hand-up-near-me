@@ -1,2 +1,2 @@
-web: cd front-end && npm install && npm start
-server: cd back-end && npm install && npm start
+web: npm install && npm front-end-start
+server: npm install && npm back-end-start
