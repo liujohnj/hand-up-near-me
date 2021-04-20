@@ -1,10 +1,9 @@
-import Map3 from "./Map3"
+import EditProfile from './EditProfile';
 
 const About = () => {
     return (
         <div className="About">
-            <h2>About us</h2>
-            <Map3 />
+            <h2><EditProfile id='607786327c5e2f902d2d55f0' /></h2>
         </div>
     );
 }

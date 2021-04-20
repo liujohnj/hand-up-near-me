@@ -2,7 +2,9 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { apiDomain } from './apiDomain';
 
-const EditProfile = () => {
+const EditProfile = ({ id }) => {
+    //id = "607786327c5e2f902d2d55f0";
+    const id2 = "607786327c5e2f902d2d55f0";
     const [originalData, setOriginalData] = useState(null);
 
     const [modifiedData, setModifiedData] = useState({
@@ -54,8 +56,11 @@ const EditProfile = () => {
         hasVisionCare: false,
         hasOther: false
     });
-
-    const { id } = useParams();
+    //const id = propsId;
+    console.log ("my id is = ", id, "and type of ", typeof(id));
+    console.log ("id2 is ", id2, "and has data type of ", typeof(id2));
+    const id3 = String(id);
+    //const { id } = useParams();
     
     const isProduction = apiDomain();
 
@@ -64,7 +69,9 @@ const EditProfile = () => {
     useEffect(() => {
         const fetchData = async () => {
            //const response = await fetch(`${isProduction}/providers/${id}`);
-           const response = await fetch(`/providers/${id}`);  //heroku production path
+           const id4 = localStorage.getItem("idKey");
+           console.log("about to fetch: ", id4);
+           const response = await fetch(`/providers/${id4}`);  //heroku production path
            const newData = await response.json();
            setIsLoading(false);
            setOriginalData(newData);
@@ -92,7 +99,7 @@ const EditProfile = () => {
                     "name": modifiedData.name || originalData.name,
                     "pid": modifiedData.pid || originalData.pid,
                     "username": modifiedData.username || originalData.username,
-                    "password": modifiedData.password || originalData.passwordname,
+                    "password": modifiedData.password || originalData.password,
                     "address1": modifiedData.address1 || originalData.address1,
                     "address2": modifiedData.address2 || originalData.address2,
                     "city": modifiedData.city || originalData.city,
@@ -146,7 +153,7 @@ const EditProfile = () => {
         console.log("orig: ", originalData);
         console.log("mod check: ", modifiedCheckboxes);
     }
-
+    //console.log("id = ", id)
 
     return (
         <div className="provider-details">

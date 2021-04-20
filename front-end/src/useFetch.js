@@ -11,7 +11,6 @@ const useFetch = (url) => {      //Custom hooks must begin with the word 'use'
 
     useEffect(() => {
         const abortCont = new AbortController();
-
         fetch(url, { signal: abortCont.signal })
             .then(res => {
                 if(!res.ok) {

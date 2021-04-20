@@ -21,7 +21,7 @@ router.route('/add').post((req, res) => {
   const text2 = req.body.text2;
   const username = req.body.username;
   const password = req.body.password;
-  const latitude = req.body.latitute;
+  const latitude = req.body.latitude;
   const longitude = req.body.longitude;
   const distanceCrow = req.body.distanceCrow;
   const phone = req.body.phone;
@@ -67,7 +67,7 @@ router.route('/add').post((req, res) => {
     text2,
     username,
     password,
-    latitute,
+    latitude,
     longitude,
     distanceCrow,
     phone,
@@ -110,6 +110,7 @@ router.route('/add').post((req, res) => {
 
 router.route('/:id').get((req, res) => {
   Provider.findById(req.params.id)
+    .then(console.log("so far so good"))
     .then(provider => res.json(provider))
     .catch(err => res.status(400).json('Error: ' + err));
 });

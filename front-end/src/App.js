@@ -4,7 +4,6 @@ import Browse from './Browse';
 import Search from './Search';
 import About from './About';
 import Contact from './Contact';
-import Map3 from './Map3';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ProviderDetails from './ProviderDetails';
 import EditProfile from './EditProfile';
