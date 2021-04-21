@@ -71,18 +71,9 @@ app.use('/providers', providersRouter);
 //THE ABOVE APP.USE STATEMENT MUST MUST MUST GO BEFORE THE BELOW CATCH-ALL OR GET JSON PARSING ERROR
 
 //Routes
-app.post("/login", (req, res, next) => {
-    passport.authenticate("local", (err,provider,info) => {
-        console.log(provider);
-        if (err) throw err;
-        if (!provider) res.send(`No provider exists`)
-        else {
-            req.login(provider, (err) => {
-                if (err) throw err;
-                res.send(`Successfully Authenticated`);
-            });
-        }
-    })(req, res, next);  // req.provider stores entire provider that has been authenticated inside of it
+app.post("/login", passport.authenticate("local"), (req, res, next) => {
+        // req.provider stores entire provider that has been authenticated inside of it
+        res.send('OK')
 });
 
 app.post("/register", (req, res) => {
@@ -94,7 +85,7 @@ app.post("/register", (req, res) => {
             console.log("about to hash");
             const hashedPassword = await bcrypt.hash(req.body.password, 10);
             console.log("new hashed pw = ", hashedPassword);
-           
+
             const newProvider = new Provider({
                 username: req.body.username,
                 password: hashedPassword

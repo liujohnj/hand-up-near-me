@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProviderCTA1 = () => {
+const ContactText = () => {
     return (
         <div>
             <h1>Are you a provider?</h1>
@@ -18,4 +18,4 @@ const ProviderCTA1 = () => {
     );
 }
 
-export default ProviderCTA1;
+export default ContactText;

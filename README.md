@@ -42,7 +42,7 @@
   - ```git add .```
   - ```git commit -m "initial commit"```
 - Push the committed files to Heroku:
-  -- ```git push heroku master```
+  -- ```git push heroku main```
 - Hopefully, the build process succeeded (although complications are typical).
 - To launch the deployed website:
  - ```heroku open```
