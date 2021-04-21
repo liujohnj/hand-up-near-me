@@ -1,19 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HomeTextRight = () => {
     return (
         <div>
-            <h1>Are you a provider?</h1>
-            
-            <p>If you are a provider of free or reduced-fee services, now more than at any time in recent history, there are a large number of struggling members of our community who can use your help.</p>
-            
-            <p>Quite often, though, those who are in the most need don't have a good, current resource to help them find their way to you, especially with all the "noise" on the Internet.</p>
+            <h2>Are you a provider?</h2>
 
-            <p>Hand Up Near Me hopes to serve as a single starting point where those users who are in need of services may find the providers who can furnish them.  From this website, they can use a very simple user interface to match providers with desired services.  Further, they can search by distance to find the providers nearest them.</p>
+            <p>The Internet is a big place, and that can make it difficult for people to find what they're looking for. If you are a provider of free or reduced-fee services, it can be difficult to be sure that those in your community who need help are able to find information about your services.</p>
+
+            <p>Hand Up Near Me hopes to make it easier for your services to be found by those who need them. By creating an account, you'll be able to create a free profile page where you can enter what services you provide, where you are located, and how you can be contacted. From there, users can easily search for services, and visit your profile page to find more information about you.</p>
+
+            <h4>Click below to create a free provider profile page.</h4>
+
+            <Link to="/login" style ={{
+                color: "white",
+                backgroundColor: '#f1356d',
+                borderRadius: '8px',
+                padding: '5px'
+            }}>Create a Provider Account</Link>
             
-            <p>As a registered provider on this website (which is operated by volunteers and operates solely on donations), your organization or agency will have your its own free profile page that it can edit and update at any time.  Of course, there is no cost at all to either providers or users.  Bless you for your wonderful works, and thank you for your service!</p>
             
-            <h4>What are you waiting for?  Sign up today!</h4>
+           
         </div>
     );
 }
