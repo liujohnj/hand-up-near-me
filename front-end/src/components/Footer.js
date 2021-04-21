@@ -6,11 +6,21 @@ const Footer = () => {
         <div style = {{
             backgroundColor: 'lightgray',
             marginTop: '20px',
-            textAlign: 'center'
+            textAlign: 'center',
+            marginBottom: '0px',
+            paddingTop: '10px',
+            paddingBottom: '10px'
         }}>
-            <p>Hand Up Near Me 2021</p>
-            <p>Home</p>
-            <p>About</p>
+            <p style = {{marginBottom:'0px'}}>Hand Up Near Me: 2021</p>
+
+            <div className="footer-links">
+                <Link to="/">Home</Link>
+                <Link to="/search">Search</Link>
+                <Link to="/about">About</Link>
+                <Link to="/contact">Contact Us</Link>
+                <Link to="/dashboard">Provider Login</Link>
+            </div>
+
 
         </div>
     );

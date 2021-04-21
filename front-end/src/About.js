@@ -3,6 +3,7 @@ import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'reac
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AboutTextLeft from './components/AboutTextLeft';
 import AboutTextRight from './components/AboutTextRight';
+import Footer from './components/Footer';
 
 const About = () => {
     return (
@@ -23,6 +24,8 @@ const About = () => {
                 </Row>
 
            </Container>
+
+           <Footer />
         </div>
     );
 }

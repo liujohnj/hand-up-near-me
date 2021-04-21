@@ -133,3 +133,8 @@
   size: 3em;
 }
 
+.footer-links a{
+  text-align: center;
+	padding: 14px 16px;
+  color: black;
+}

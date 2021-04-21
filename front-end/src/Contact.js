@@ -17,6 +17,7 @@ import { usePosition } from 'use-position';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, DistanceMatrixService } from "react-google-maps";
 import Geocode from "react-geocode";
 import MapLocation from './MapLocation';
+import ContactText from './components/ContactText';
 
 
 const Contact = () => {
@@ -83,6 +84,9 @@ const Contact = () => {
     return (
         <div className="Contact">
             <h2>Contact us</h2>
+
+            <ContactText />
+
             <MapLocation />
             {/*
             <div className="myLocation">

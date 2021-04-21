@@ -12,7 +12,7 @@ const HomeTextRight = () => {
 
             <h4>Click below to create a free provider profile page.</h4>
 
-            <Link to="/login" style ={{
+            <Link to="/dashboard" style ={{
                 color: "white",
                 backgroundColor: '#f1356d',
                 borderRadius: '8px',

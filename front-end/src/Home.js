@@ -54,13 +54,11 @@ const Home = () => {
    
    
    <div className="home">
-
-            <HomeTextTop />
    
            <Container>
                 <Row>
                     <h1>Hand Up Near Me</h1>
-                    <h4>Placeholder ... yada yada yada ...</h4>
+                    <h4>Finding the help you need can be hard. We're here to lend a hand.</h4>
                     <br/>
                     <hr/>
                 </Row>
