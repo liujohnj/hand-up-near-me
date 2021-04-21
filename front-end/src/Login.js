@@ -6,6 +6,8 @@ import Axios from 'axios';
 import EditProfile from './EditProfile';
 
 
+
+
 const Login = () => {
     const [registerUsername, setRegisterUsername] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
@@ -102,33 +104,30 @@ const Login = () => {
     return (
         <div className="login">
             <div>
-               <h2>Register</h2>
-               <input placeholder="username" onChange={handleRegisterUsername} />
-               <input placeholder="password" onChange={handleRegisterPassword}/>
-               <button onClick={register}>Submit</button>
+            <h2>Register</h2>
+            <input placeholder="username" onChange={handleRegisterUsername} />
+            <input placeholder="password" onChange={handleRegisterPassword}/>
+            <button onClick={register}>Submit</button>
             </div>
-           
+        
             <div>
-               <h2>Login</h2>
-               <input placeholder="username" onChange={handleLoginUsername} />
-               <input placeholder="password" onChange={handleLoginPassword} />
-               <button onClick={login}>Submit</button>
+            <h2>Login</h2>
+            <input placeholder="username" onChange={handleLoginUsername} />
+            <input placeholder="password" onChange={handleLoginPassword} />
+            <button onClick={login}>Submit</button>
             </div>
 
             <div>
-               <h2>Get User</h2>
-               <button onClick={getUser}>Submit</button>
-               {/* {data ? <h1>Welcome Back {data}</h1> : null} */}
+            <h2>Get User</h2>
+            <button onClick={getUser}>Submit</button>
+            {/* {data ? <h1>Welcome Back {data}</h1> : null} */}
             </div>
 
             <div>
                 <h2>Log Out</h2>
                 <button onClick={handleLogout}>Reset</button>
             </div>
-           
-
-
-
+        
 
             <br />
             <br />
@@ -141,6 +140,7 @@ const Login = () => {
             <br />
             <Link to="/editprofile/607786327c5e2f902d2d55ee">Catholic Charities - Gainesville Regional Office</Link>
             <br />
+        
         </div>
     );
 }

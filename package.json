@@ -9,42 +9,38 @@
   "engines": {
     "node": "10.12.0"
   },
-
   "proxy": "http://localhost:5000",
-  
   "scripts": {
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix front-end && npm run build --prefix front-end"
   },
-  
   "dependencies": {
     "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^5.0.0-beta3",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.13",
     "nodemon": "^2.0.7",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "express-session": "^1.17.1",
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
-    "jsonwebtoken": "^8.5.1",
-    "cookie-parser": "^1.4.5"
+    "react-bootstrap": "^1.5.2"
   },
-
   "eslintConfig": {
     "extends": [
       "react-app"
     ]
   },
-
   "browserslist": {
     "production": [
       ">0.2%",
       "not dead",
       "not op_mini all"
     ],
-    
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

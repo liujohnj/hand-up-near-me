@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react';
 import { apiDomain } from './apiDomain';
 
 const EditProfile = ({ id }) => {
-    //id = "607786327c5e2f902d2d55f0";
-    const id2 = "607786327c5e2f902d2d55f0";
     const [originalData, setOriginalData] = useState(null);
 
     const [modifiedData, setModifiedData] = useState({
@@ -56,11 +54,6 @@ const EditProfile = ({ id }) => {
         hasVisionCare: false,
         hasOther: false
     });
-    //const id = propsId;
-    console.log ("my id is = ", id, "and type of ", typeof(id));
-    console.log ("id2 is ", id2, "and has data type of ", typeof(id2));
-    const id3 = String(id);
-    //const { id } = useParams();
     
     const isProduction = apiDomain();
 
