@@ -56,6 +56,12 @@ const Home = () => {
    
            <Container>
                 <Row>
+                    <h1>Hand Up Near Me</h1>
+                    <h4>Placeholder ... yada yada yada ...</h4>
+                    <br/>
+                    <hr/>
+                </Row>
+                <Row>
                     <Col className="rm-15" sm={5}>
                         <HomeTextLeft />
                     </Col>
