@@ -93,8 +93,8 @@ const Dashboard = () => {
                             Registered Provider Sign-in
                         </Form.Label>
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control placeholder="Enter email" value={loginUsername} onChange={handleLoginUsername}/>
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control placeholder="Enter username" value={loginUsername} onChange={handleLoginUsername}/>
                         </Form.Group>
                         <br />
                         <Form.Group controlId="formBasicPassword">
@@ -120,16 +120,16 @@ const Dashboard = () => {
                             Not registered? Register here.
                         </Form.Label>
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control placeholder="Enter username" value={registerUsername} onChange={handleRegisterUsername} />
                         </Form.Group>
                         <br />
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control type="password" placeholder="Password" value={registerPassword} onChange={handleRegisterPassword} />
                         </Form.Group>
                         <br />
-                        <Button variant="primary" type="submit">
+                        <Button variant="primary" onClick={register}>
                             Submit
                         </Button>
                     </Form>
