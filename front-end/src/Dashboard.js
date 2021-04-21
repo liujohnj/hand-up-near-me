@@ -1,6 +1,6 @@
 import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form, FormLabel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ProviderCTA1 from "./components/ProviderCTA1";
+import ProviderText from "./components/ProviderText";
 import React from 'react';
 import { Link } from 'react-router-dom';  //so that React handles routing in browser
 import { useState, useEffect } from 'react';
@@ -8,6 +8,7 @@ import { apiDomain } from './apiDomain'
 import Axios from 'axios';
 import EditProfile from './EditProfile';
 import Contact from './Contact';
+import { useAuth } from './contexts/AuthHook';
 
 const Dashboard = () => {
 
@@ -15,11 +16,10 @@ const Dashboard = () => {
     const [registerPassword, setRegisterPassword] = useState("");
     const [loginUsername, setLoginUsername] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
-    const [data, setData] = useState(null);
-    const [token, setToken] = useState(null);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [isLoggedOut, setIsLoggedOut] = useState(true);
-    
+    const [error, setError] = useState(null)
+
+    const auth = useAuth()
+
     const handleRegisterUsername = e => {
         setRegisterUsername(e.target.value);
     };
@@ -44,100 +44,36 @@ const Dashboard = () => {
             withCredentials: true,
             url: '/register',
             }).then((res) => console.log(res));
-        };
-
-    useEffect(() => {
-        const getUserId = () => {
-            isLoggedIn && getUser();
-        };
-        getUserId();
-    }, [isLoggedIn]);
-
-
-    useEffect(() => {
-        const logUserOut = () => {
-            if (isLoggedOut) {
-                setIsLoggedIn(false);
-                setToken(null);
-                setData(null);
-                setLoginUsername(null);
-                setLoginPassword(null);
-                setRegisterUsername(null);
-                setRegisterPassword(null);
-                localStorage.setItem("idKey", "");
-                console.log("token post-logout = ", token);
-                console.log("data post-logout = ", data);
-            }
-        };
-        logUserOut();
-    }, [isLoggedOut]);
-
-    const login = async () => {
-        Axios({
-            method: 'POST',
-            data:
-                {
-                    username: loginUsername,
-                    password: loginPassword
-                },
-            withCredentials: true,
-            url: '/login',
-            }).then((res) => {
-                console.log("about to set isLoggedIn to true");
-                setIsLoggedIn(true);
-                setIsLoggedOut(false);
-                console.log("login result data is: ", res);
-                console.log("am i logged in? ", isLoggedIn);
-            });
-        };
-
-    const getUser = async () => {
-        Axios({
-            method: 'GET',
-            withCredentials: true,
-            url: '/user',
-            }).then((res) => {
-                setData(res.data);
-                setToken(res.data._id);
-                console.log("res.data: ", res.data);
-                console.log("data_.id = ", res.data._id);
-                //localStorage.setItem("idKey", res.data._id);
-                console.log("token = ", token);
-                console.log("res after clearing = ", res)
-                console.log("logged in now??? ", isLoggedIn);
-            });
     };
 
-    const handleLogout = async () => {
-        await setIsLoggedIn(false);
-        localStorage.clear();
-        
-        //propsId = "";
-       
+
+    const login = (e) => {
+        e.preventDefault()
+        setError(null)
+        auth.login(loginUsername, loginPassword)
+            .then(() => {setLoginUsername("")
+            setLoginPassword("")
+            })
+            
+        .catch(err => {
+            setError('something went wrong')
+        })
+    };
+
+    const handleLogout = () => {
+        auth.logout()
     }
-
-    useEffect(() => {
-        console.log("token change: ", token);
-        setToken(null);
-
-        return () => {
-            token && localStorage.setItem("idKey", token);
-        }
-    }, [token]);
 
     const myKey = localStorage.getItem("idKey");
     console.log ("my key is:  ", myKey);
 
-    if (localStorage.getItem("idKey")) {
-        const idProp = localStorage.getItem("idKey");
+    if (auth.isLoggedIn()) {
         return (
             <div>
-                {console.log("can i see data? ", idProp) }
-                {console.log("and what about token? ", token)}
-                <Contact />>
-                <EditProfile id = "607786327c5e2f902d2d55f0" />
-                {/*<EditProfile id = { idProp } />*/}
-                <h1>Hello</h1>
+                {/* <Contact />
+                <EditProfile id = "607786327c5e2f902d2d55f0" /> */}
+                <EditProfile id = { auth.user._id } />
+                <h1>Hello {auth.user._id}</h1>
                 <br />
                 <button onClick={handleLogout}>Log Out</button>
             </div>
@@ -149,28 +85,34 @@ const Dashboard = () => {
             <Container>
                 <Row>
                     <Col className="rp-5" sm={8}>
-                        <ProviderCTA1 />
+                        <ProviderText />
                     </Col>
                    <Col sm={4}>
-                    <Form className="border border-secondary rounded p-2">
+                    <Form className="border border-secondary rounded p-2" onSubmit={login}>
                         <Form.Label column="lg" lg={12}  >
                             Registered Provider Sign-in
                         </Form.Label>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control placeholder="Enter email" onChange={handleLoginUsername}/>
+                            <Form.Control placeholder="Enter email" value={loginUsername} onChange={handleLoginUsername}/>
                         </Form.Group>
                         <br />
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" onChange={handleLoginPassword}/>
+                            <Form.Control type="password" placeholder="Password" value={loginPassword} onChange={handleLoginPassword}/>
                         </Form.Group>
                         <br />
                         <Button variant="primary" onClick={login}>
                             Submit
                         </Button>
                     </Form>
-                    
+
+                    {
+                        error && (
+                            <p>{error}</p>
+                        )
+                    }
+
                     <br />
                     <br />
                     <Form className="border border-secondary rounded p-2">
@@ -193,11 +135,11 @@ const Dashboard = () => {
                     </Form>
                    </Col>
 
-                </Row>    
+                </Row>
             </Container>
         </div>
     );
-    
+
 }
 
 export default Dashboard;

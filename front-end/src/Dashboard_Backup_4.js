@@ -1,6 +1,6 @@
 import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form, FormLabel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ProviderCTA1 from "./components/ProviderCTA1";
+import ProviderText from "./components/ProviderText";
 import React from 'react';
 import { Link } from 'react-router-dom';  //so that React handles routing in browser
 import { useState, useEffect } from 'react';
@@ -13,14 +13,14 @@ const Dashboard = () => {
 
     const [registerUsername, setRegisterUsername] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
-   
+
     const handleRegisterUsername = e => {
         setRegisterUsername(e.target.value);
     };
     const handleRegisterPassword = e => {
         setRegisterPassword(e.target.value);
     };
-   
+
     const register = () => {
         Axios({
             method: 'POST',
@@ -34,7 +34,7 @@ const Dashboard = () => {
             }).then((res) => console.log(res));
         };
 
- 
+
     const loginUsername = document.getElementById('loginUsername');
     const loginPassword = document.getElementById('loginPassword');
     console.log(loginUsername, " : ", loginPassword);
@@ -50,7 +50,7 @@ const Dashboard = () => {
    //     var loginPassword = ReactDOM.findDOMNode(this.refs.ref2).value
 
     const login = async () => {
-        
+
         Axios({
             method: 'POST',
             data:
@@ -114,7 +114,7 @@ const Dashboard = () => {
             <Container>
                 <Row>
                     <Col className="rp-5" sm={8}>
-                        <ProviderCTA1 />
+                        <ProviderText />
                     </Col>
                    <Col sm={4}>
                     <Form className="border border-secondary rounded p-2">
@@ -135,7 +135,7 @@ const Dashboard = () => {
                             Submit
                         </Button>
                     </Form>
-                    
+
                     <br />
                     <br />
                     <Form className="border border-secondary rounded p-2">
@@ -158,11 +158,11 @@ const Dashboard = () => {
                     </Form>
                    </Col>
 
-                </Row>    
+                </Row>
             </Container>
         </div>
     );
-    
+
 }
 
 export default Dashboard;

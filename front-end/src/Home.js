@@ -1,4 +1,8 @@
 import React from 'react';
+import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form, FormLabel } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import HomeTextLeft from './components/HomeTextLeft';
+import HomeTextRight from './components/HomeTextRight';
 
 const Home = () => {
 
@@ -6,7 +10,22 @@ const Home = () => {
     
     return (
         <div className="home">
-           <h1>Welcome</h1>
+           <Container>
+                <Row>
+                    <Col className="rm-15" sm={5}>
+                        <HomeTextLeft />
+                    </Col>
+
+                    <Col className="rm-15" sm={2}>
+                        
+                    </Col>
+
+                    <Col className="rm-15" sm={5}>
+                        <HomeTextRight />
+                    </Col>
+                </Row>
+
+           </Container>
         </div>
     );
 }

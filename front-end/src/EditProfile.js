@@ -54,7 +54,7 @@ const EditProfile = ({ id }) => {
         hasVisionCare: false,
         hasOther: false
     });
-    
+
     const isProduction = apiDomain();
 
     const [isLoading, setIsLoading] = useState(true);
@@ -64,7 +64,7 @@ const EditProfile = ({ id }) => {
            //const response = await fetch(`${isProduction}/providers/${id}`);
            const id4 = localStorage.getItem("idKey");
            console.log("about to fetch: ", id4);
-           const response = await fetch(`/providers/${id4}`);  //heroku production path
+           const response = await fetch(`/providers/${id}`);  //heroku production path
            const newData = await response.json();
            setIsLoading(false);
            setOriginalData(newData);
