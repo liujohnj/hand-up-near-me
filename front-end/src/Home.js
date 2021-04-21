@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form, FormLabel } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HomeTextLeft from './components/HomeTextLeft';
 import HomeTextRight from './components/HomeTextRight';
+import HomeTextTop from './components/HomeTextTop';
+import Footer from './components/Footer';
 
 const Home = () => {
 
@@ -53,6 +54,8 @@ const Home = () => {
    
    
    <div className="home">
+
+            <HomeTextTop />
    
            <Container>
                 <Row>
@@ -70,7 +73,11 @@ const Home = () => {
                 </Row>
 
            </Container>
-        </div>
+
+            
+            <Footer />
+
+    </div>    
     );
 }
  
