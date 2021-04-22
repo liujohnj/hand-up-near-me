@@ -16,7 +16,8 @@ const Dashboard = () => {
     const [registerPassword, setRegisterPassword] = useState("");
     const [loginUsername, setLoginUsername] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(null);
+    const [registerError, setRegisterError] = useState(null);
 
     const auth = useAuth()
 
@@ -43,7 +44,18 @@ const Dashboard = () => {
                 },
             withCredentials: true,
             url: '/register',
-            }).then((res) => console.log(res));
+            }).then((res) => {
+                console.log(res);
+                setRegisterUsername("");
+                setRegisterPassword("");
+                const resultData = JSON.stringify(res.data);
+                setRegisterError(resultData);
+                })
+            
+            .catch(err => {
+                setRegisterError('Something went wrong')
+            })
+        
     };
 
 
@@ -56,7 +68,7 @@ const Dashboard = () => {
             })
             
         .catch(err => {
-            setError('something went wrong')
+            setError('Something went wrong. Please try again.')
         })
     };
 
@@ -70,12 +82,12 @@ const Dashboard = () => {
     if (auth.isLoggedIn()) {
         return (
             <div>
-                {/* <Contact />
-                <EditProfile id = "607786327c5e2f902d2d55f0" /> */}
+                <h1>Hello { auth.user.username }.</h1>
+                <h5>Please update your profile page.</h5>
+                <hr />
                 <EditProfile id = { auth.user._id } />
-                <h1>Hello {auth.user._id}</h1>
                 <br />
-                <button onClick={handleLogout}>Log Out</button>
+                <Button variant="danger" onClick={handleLogout}>Log Out</Button>
             </div>
         )
 
@@ -105,13 +117,10 @@ const Dashboard = () => {
                         <Button variant="primary" onClick={login}>
                             Submit
                         </Button>
+                        {registerError && <Alert variant={'danger'}>{registerError + ' Please try again.'}</Alert>}
                     </Form>
 
-                    {
-                        error && (
-                            <p>{error}</p>
-                        )
-                    }
+                   
 
                     <br />
                     <br />
@@ -132,6 +141,7 @@ const Dashboard = () => {
                         <Button variant="primary" onClick={register}>
                             Submit
                         </Button>
+                        {registerError && <Alert variant={'danger'}>{registerError + ' Please select a different username.'}</Alert>}
                     </Form>
                    </Col>
 
@@ -143,5 +153,3 @@ const Dashboard = () => {
 }
 
 export default Dashboard;
-
-//<Form.Img src="https://v5.getbootstrap.com/docs/5.0/assets/brand/bootstrap-solid.svg" height="72" alt="Bootstrap logo"/>

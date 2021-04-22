@@ -2,6 +2,8 @@ import ProviderList from './ProviderList';
 import useFetch from './useFetch';
 import { useState, useEffect, useLocalStorage } from 'react';
 import { apiDomain } from './apiDomain'
+import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form, FormLabel } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Search = () => {
     
@@ -473,6 +475,7 @@ const Search = () => {
             <div className="results-area">
                 { error && <div>{ error }</div>}
                 { isPending && <div>Loading...</div> }
+
                 { providers && <ProviderList providers={sortedProviders.filter(
                     provider =>
                         (filterName !== "" && provider.name.toLowerCase().includes(filterName.toLowerCase())) ||

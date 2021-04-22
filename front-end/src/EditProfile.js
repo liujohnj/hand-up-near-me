@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { apiDomain } from './apiDomain';
+import { Form, Nav, Navbar, Button, NavDropdown } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const EditProfile = ({ id }) => {
     const [originalData, setOriginalData] = useState(null);
@@ -180,10 +182,12 @@ const EditProfile = ({ id }) => {
                         <br />
                         Latitude:
                         <input type="text" size="50" name="latitude" value={modifiedData.latitude} placeholder={ originalData.latitude } onChange={handleChangeTextField} />
+                        <span>  Required for Google Maps</span>
                         <br />
                         <br />
                         Longitude:
                         <input type="text" size="50" name="longitude" value={modifiedData.longitude} placeholder={ originalData.longitude } onChange={handleChangeTextField} />
+                        <span>  Required for Google Maps</span>
                         <br />
                         <br />
                         Phone:
@@ -485,7 +489,7 @@ const EditProfile = ({ id }) => {
                         </label>
                         <br />
                         <br />
-                        <input type="submit" value="SAVE" onClick={handleSubmitTextFields} />
+                        <Button variant="warning" onClick={handleSubmitTextFields}>Publish</Button>
                     </form>
                 </article>
             )}

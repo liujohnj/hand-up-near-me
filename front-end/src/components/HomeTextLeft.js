@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const HomeTextLeft = () => {
+const HomeTextTop = () => {
     return (
         <div>
             <h2>Are you looking for services?</h2>
@@ -25,4 +27,4 @@ const HomeTextLeft = () => {
     );
 }
 
-export default HomeTextLeft;
+export default HomeTextTop;
