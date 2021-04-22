@@ -478,7 +478,7 @@ const Search = () => {
 
                 { providers && <ProviderList providers={sortedProviders.filter(
                     provider =>
-                        (filterName !== "" && provider.name.toLowerCase().includes(filterName.toLowerCase())) ||
+                        (filterName !== "" && provider.name && provider.name.toLowerCase().includes(filterName.toLowerCase())) ||
                         (
                             (!filterName && !state.hookAdoption && !state.hookChildcare &&
                                 !state.hookClothing && !state.hookCrisisCounseling && !state.hookDentalCare && !state.hookDisability &&
