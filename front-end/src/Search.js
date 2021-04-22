@@ -468,7 +468,7 @@ const Search = () => {
                         </select>
                         <br />
                         <br />
-                        <input type="submit" value="RESET SEARCH" onClick={handleClearSearch} />
+                        <Button variant="info" onClick={handleClearSearch}>Reset Search</Button>
                     </form>
                 </div>
             </div>

@@ -19,6 +19,7 @@ const Dashboard = () => {
     const [error, setError] = useState(null);
     const [registerError, setRegisterError] = useState(null);
 
+
     const auth = useAuth()
 
     const handleRegisterUsername = e => {
@@ -53,14 +54,13 @@ const Dashboard = () => {
                 })
             
             .catch(err => {
-                setRegisterError('Something went wrong')
+                setRegisterError('Something went wrong.')
             })
         
     };
 
-
     const login = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         setError(null)
         auth.login(loginUsername, loginPassword)
             .then(() => {setLoginUsername("")
@@ -117,7 +117,7 @@ const Dashboard = () => {
                         <Button variant="primary" onClick={login}>
                             Submit
                         </Button>
-                        {registerError && <Alert variant={'danger'}>{registerError + ' Please try again.'}</Alert>}
+                        {error && <Alert variant={'danger'}>{error}</Alert>}
                     </Form>
 
                    
