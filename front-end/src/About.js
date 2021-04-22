@@ -7,7 +7,10 @@ import Footer from './components/Footer';
 
 const About = () => {
     return (
-        <div className="About">
+        <div className="About" style = {{
+            minHeight:'100%',
+            position:'relative'
+        }}>
            <Container>
                <Row>
                    <h1>About Us</h1>

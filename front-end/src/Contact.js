@@ -18,6 +18,7 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker, DistanceMatrixService }
 import Geocode from "react-geocode";
 import MapLocation from './MapLocation';
 import ContactText from './components/ContactText';
+import Footer from './components/Footer';
 
 
 const Contact = () => {
@@ -115,6 +116,7 @@ const Contact = () => {
                 */}
             {/*</div>*/}
             
+            <Footer />
         </div>
     );
 }

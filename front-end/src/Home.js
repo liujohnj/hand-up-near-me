@@ -5,6 +5,8 @@ import HomeTextLeft from './components/HomeTextLeft';
 import HomeTextRight from './components/HomeTextRight';
 import HomeTextTop from './components/HomeTextTop';
 import Footer from './components/Footer';
+import Image from 'react-bootstrap/Image';
+import smiles from './smiling-people.jpg';
 
 const Home = () => {
 
@@ -65,6 +67,7 @@ const Home = () => {
                 <Row>
                     <Col className="rm-15" sm={5}>
                         <HomeTextLeft />
+                        <Image src={smiles} fluid style={{paddingTop:'10px'}}/>
                     </Col>
 
                     <Col className="rm-15" sm={2}>
@@ -78,7 +81,8 @@ const Home = () => {
 
            </Container>
 
-            
+           
+
             <Footer />
 
     </div>    

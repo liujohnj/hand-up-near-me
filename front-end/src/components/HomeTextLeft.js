@@ -18,6 +18,8 @@ const HomeTextLeft = () => {
                 borderRadius: '8px',
                 padding: '5px'
             }}>Search for Services Near You</Link>
+
+            
            
         </div>
     );
