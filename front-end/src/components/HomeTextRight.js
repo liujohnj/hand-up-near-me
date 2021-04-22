@@ -19,7 +19,7 @@ const HomeTextRight = () => {
 
             <br />
             <center>
-                <Button variant="outline-primary" href="/search">Create a Provider Account</Button>{' '}
+                <Button variant="outline-primary" href="/dashboard">Create a Provider Account</Button>{' '}
             </center>
             <br />
 
