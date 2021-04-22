@@ -13,7 +13,12 @@ const HomeTextTop = () => {
             <p>At Hand Up Near Me, our goal is to gather services in one convenient place so you can find them easily. You can search for providers by name, by category, or by distance.</p>
 
             <h4>Click below to begin your search for free.</h4>
-
+            <br />
+            <center>
+                <Button variant="outline-success" href="/search">Search for Services Near You</Button>{' '}
+            </center>
+            <br />
+            {/*
             <div style={{
                 textAlign:'center'
             }}>
@@ -25,6 +30,7 @@ const HomeTextTop = () => {
                     marginTop: '10px',
                 }}>Search for Services Near You</Link>
             </div>
+            */}
 
 
             

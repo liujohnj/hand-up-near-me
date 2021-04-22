@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const HomeTextRight = () => {
     return (
@@ -14,6 +16,14 @@ const HomeTextRight = () => {
                 marginBottom:'10px'
             }}>Click below to create a free provider profile page.</h4>
 
+
+            <br />
+            <center>
+                <Button variant="outline-primary" href="/search">Search for Services Near You</Button>{' '}
+            </center>
+            <br />
+
+            {/*
             <div style={{
                 textAlign:'center'
             }}>
@@ -25,7 +35,7 @@ const HomeTextRight = () => {
                     marginTop:'10px'
                 }}>Create a Provider Account</Link>
             </div>
-
+            */}
             
             
            
