@@ -9,6 +9,9 @@ const About = () => {
     return (
         <div className="About">
            <Container>
+               <Row>
+                   <h1>About Us</h1>
+               </Row>
                 <Row>
                     <Col className="rm-15" sm={5}>
                         <AboutTextLeft />

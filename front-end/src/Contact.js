@@ -83,7 +83,7 @@ const Contact = () => {
 
     return (
         <div className="Contact">
-            <h2>Contact us</h2>
+            <h2>Contact Us</h2>
 
             <ContactText />
 
