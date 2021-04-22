@@ -4,6 +4,8 @@ import MapLocation from "./MapLocation";
 import ReturnServices from "./ReturnServices";
 import useFetch from "./useFetch";
 import { apiDomain } from './apiDomain'
+import { Form, Nav, Navbar, Button, NavDropdown } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ProviderDetails = () => {
     const { id } = useParams();
@@ -18,6 +20,9 @@ const ProviderDetails = () => {
             { error && <div>{ error }</div>}
             { providers && (
                 <article>
+                    <Button variant="outline-primary" size="sm" href="/search">Back to search results</Button>{' '}
+                    <br />
+                    <br />
                     <h2>{ providers.name }</h2>
                     <p>{ providers.address1 }</p>
                     <p>{ providers.address2 }</p>
@@ -31,6 +36,8 @@ const ProviderDetails = () => {
             <br />
             <ReturnServices provider={ providers } />
             <MapLocation provider={ providers } />
+            <br />
+            <Button variant="outline-primary" size="sm" href="/search">Back to search results</Button>{' '}
         </div>
     );
 }

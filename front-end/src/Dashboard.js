@@ -82,8 +82,8 @@ const Dashboard = () => {
     if (auth.isLoggedIn()) {
         return (
             <div>
-                <h1>Hello { auth.user.username }.</h1>
-                <h5>Please update your profile page.</h5>
+                <h1>Hello, { auth.user.username }.</h1>
+                <h5>Please update your profile page here.</h5>
                 <hr />
                 <EditProfile id = { auth.user._id } />
                 <br />
