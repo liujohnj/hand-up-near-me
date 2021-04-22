@@ -17,7 +17,7 @@ router.route('/add').post((req, res) => {
   const city = req.body.city;
   const state = req.body.state;
   const zipCode = req.body.zipCode;
-  const text = req.body.text;
+  const text1 = req.body.text1;
   const text2 = req.body.text2;
   const username = req.body.username;
   const password = req.body.password;
@@ -63,7 +63,7 @@ router.route('/add').post((req, res) => {
     city,
     state,
     zipCode,
-    text,
+    text1,
     text2,
     username,
     password,
@@ -132,7 +132,7 @@ router.route('/update/:id').post((req, res) => {
       provider.city = req.body.city;
       provider.state = req.body.state;
       provider.zipCode = req.body.zipCode;
-      provider.text = req.body.text;
+      provider.text1 = req.body.text1;
       provider.text2 = req.body.text2;
       provider.username = req.body.username;
       provider.password = req.body.password;
