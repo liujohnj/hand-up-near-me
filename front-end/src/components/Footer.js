@@ -10,6 +10,7 @@ const Footer = () => {
             marginBottom: '0px',
             paddingTop: '10px',
             paddingBottom: '10px'
+            
         }}>
             <p style = {{marginBottom:'0px'}}>Hand Up Near Me: 2021</p>
 

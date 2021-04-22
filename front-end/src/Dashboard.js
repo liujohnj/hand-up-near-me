@@ -9,6 +9,7 @@ import Axios from 'axios';
 import EditProfile from './EditProfile';
 import Contact from './Contact';
 import { useAuth } from './contexts/AuthHook';
+import Footer from './components/Footer';
 
 const Dashboard = () => {
 
@@ -147,6 +148,7 @@ const Dashboard = () => {
 
                 </Row>
             </Container>
+            <Footer />
         </div>
     );
 

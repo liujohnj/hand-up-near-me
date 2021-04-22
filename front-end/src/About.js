@@ -3,14 +3,11 @@ import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'reac
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AboutTextLeft from './components/AboutTextLeft';
 import AboutTextRight from './components/AboutTextRight';
-import Footer from './components/Footer';
+import { Link } from 'react-router-dom';
 
 const About = () => {
     return (
-        <div className="About" style = {{
-            minHeight:'100%',
-            position:'relative'
-        }}>
+        <div className="About">
            <Container>
                <Row>
                    <h1>About Us</h1>
@@ -31,7 +28,31 @@ const About = () => {
 
            </Container>
 
-           <Footer />
+           <div style = {{
+            backgroundColor: 'lightgray',
+            marginTop: '20px',
+            textAlign: 'center',
+            marginBottom: '0px',
+            paddingTop: '10px',
+            paddingBottom: '10px',
+            position:'fixed',
+            bottom:'10px',
+            right: '10px',
+            width:'100%'
+            
+            }}>
+            <p style = {{marginBottom:'0px'}}>Hand Up Near Me: 2021</p>
+
+            <div className="footer-links">
+                <Link to="/">Home</Link>
+                <Link to="/search">Search</Link>
+                <Link to="/about">About</Link>
+                <Link to="/contact">Contact Us</Link>
+                <Link to="/dashboard">Provider Login</Link>
+            </div>
+
+
+        </div>
         </div>
     );
 }
