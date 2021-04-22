@@ -14,12 +14,18 @@ const HomeTextTop = () => {
 
             <h4>Click below to begin your search for free.</h4>
 
-            <Link to="/search" style ={{
-                color: "white",
-                backgroundColor: '#f1356d',
-                borderRadius: '8px',
-                padding: '5px'
-            }}>Search for Services Near You</Link>
+            <div style={{
+                textAlign:'center'
+            }}>
+                <Link to="/search" style ={{
+                    color: "white",
+                    backgroundColor: '#f1356d',
+                    borderRadius: '8px',
+                    padding: '5px',
+                    marginTop: '10px',
+                }}>Search for Services Near You</Link>
+            </div>
+
 
             
            

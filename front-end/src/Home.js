@@ -67,7 +67,7 @@ const Home = () => {
                 <Row>
                     <Col className="rm-15" sm={5}>
                         <HomeTextLeft />
-                        <Image src={smiles} fluid style={{paddingTop:'10px'}}/>
+                        <Image src={smiles} fluid style={{paddingTop:'15px'}}/>
                     </Col>
 
                     <Col className="rm-15" sm={2}>
