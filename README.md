@@ -6,6 +6,8 @@
 - Follow instructions in the Project Handover Document for installing two .env files, one in `back-end` folder and second in `front-end` folder containing these keys and environmental varaibles.
 - Execute the following instructions from a terminal (in a Windows and not Linux or WSL environment):
   - From the root directory:  `npm install`
+  - From the back-end directory: `npm install`
+  - From the front-end directory: `npm install`
   - After the necessary dependencies are installed from the package.json file, then to start the back-end server:
     - `cd back-end`
     - `npm start`
